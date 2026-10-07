@@ -1,0 +1,2330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of Vaishnavi - Software Engineer. Neo-retro pixel art portfolio showcasing distributed systems, full-stack web applications, skill progression trees, interactive AI dialogue, and engineering projects.">
+    <meta name="keywords"
+        content="Vaishnavi, Software Engineer, Pixel Portfolio, Full-Stack Developer, Distributed Systems, Web Development, Retro Gaming UI, JavaScript, Python, Cloud Computing">
+    <meta name="author" content="Vaishnavi">
+    <meta name="theme-color" content="#0b0b14">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vaishnavi | Software Engineer - Pixel Portfolio">
+    <meta property="og:description"
+        content="Explore Vaishnavi's pixel art software engineering portfolio: projects, interactive AI terminal, skill progression trees, and guild endorsements.">
+    <meta property="og:image" content="pixel_avatar.jpg">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vaishnavi | Software Engineer - Pixel Portfolio">
+    <meta name="twitter:description"
+        content="Explore Vaishnavi's pixel art software engineering portfolio: projects, interactive AI terminal, skill progression trees, and guild endorsements.">
+    <meta name="twitter:image" content="pixel_avatar.jpg">
+
+    <!-- Retro Pixel Favicon (Inline SVG Data URI) -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%230b0b14%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%2300e5ff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%2300e5ff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%2300e5ff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%2339ff14%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23ff0055%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23ff0055%22%2F%3E%3C%2Fsvg%3E">
+
+    <title>Vaishnavi | Software Engineer - Pixel Portfolio</title>
+
+    <!-- Google Pixel Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================================================= -->
+    <!-- MOBILE TOP BAR (VISIBLE ON SMALL SCREENS ONLY)           -->
+    <!-- ========================================================= -->
+    <header id="mobile-header" class="mobile-top-bar" aria-label="Mobile Navigation Bar">
+        <a href="#hero" class="mobile-brand" aria-label="Home">
+            <span class="brand-icon" aria-hidden="true">&#9876;</span>
+            <span class="brand-name">&lt;Vaishnavi.dev /&gt;</span>
+        </a>
+
+        <button type="button" id="mobile-nav-toggle" class="mobile-menu-btn" aria-label="Open Navigation Menu"
+            aria-expanded="false" aria-controls="vertical-navbar">
+            <span class="menu-bars-icon" aria-hidden="true">&#9776;</span>
+            <span class="menu-btn-text">MENU</span>
+        </button>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- VERTICAL NAVIGATION BAR (LEFT SIDEBAR)                    -->
+    <!-- ========================================================= -->
+    <aside id="vertical-navbar" class="pixel-sidebar" aria-label="Primary Navigation">
+        <div class="sidebar-inner">
+
+            <!-- Sidebar Header: Avatar Badge & Brand Identity -->
+            <div class="sidebar-header">
+                <a href="#hero" class="sidebar-brand" aria-label="Home - Vaishnavi">
+                    <div class="sidebar-player-badge">
+                        <span class="player-tag">P1</span>
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <span class="brand-title">&lt;Vaishnavi /&gt;</span>
+                        <span class="brand-class">LVL 99 ARCHITECT</span>
+                    </div>
+                </a>
+
+                <!-- Mobile Close Drawer Button -->
+                <button type="button" id="mobile-close-btn" class="mobile-close-btn" aria-label="Close navigation menu">
+                    <span aria-hidden="true">&#10005;</span>
+                </button>
+            </div>
+
+            <!-- Navigation Links Section -->
+            <nav class="sidebar-nav" aria-label="Sections">
+                <div class="nav-category-title" aria-hidden="true">
+                    <span>&#9650;</span> QUEST MAP
+                </div>
+
+                <ul class="sidebar-menu" id="sidebar-menu" role="menubar">
+                    <li role="none">
+                        <a href="#hero" class="sidebar-link active" data-nav="hero" role="menuitem" aria-current="page">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#127968;</span>
+                            <span class="link-label">Home</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="sidebar-link" data-nav="about" role="menuitem">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#128100;</span>
+                            <span class="link-label">About Me</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#skills" class="sidebar-link" data-nav="skills" role="menuitem">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#9889;</span>
+                            <span class="link-label">Skills</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#timeline" class="sidebar-link" data-nav="timeline" role="menuitem">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#128220;</span>
+                            <span class="link-label">Timeline</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#projects" class="sidebar-link" data-nav="projects" role="menuitem">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#9876;</span>
+                            <span class="link-label">Projects</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#spotlight" class="sidebar-link" data-nav="spotlight" role="menuitem">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#127916;</span>
+                            <span class="link-label">Spotlight</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#testimonials" class="sidebar-link" data-nav="testimonials" role="menuitem">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#11088;</span>
+                            <span class="link-label">Testimonials</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#chat" class="sidebar-link" data-nav="chat" role="menuitem">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#128172;</span>
+                            <span class="link-label">Chat</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="#contact" class="sidebar-link" data-nav="contact" role="menuitem">
+                            <span class="link-cursor" aria-hidden="true">&#9654;</span>
+                            <span class="link-icon" aria-hidden="true">&#9993;</span>
+                            <span class="link-label">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Sidebar Footer & Controls -->
+            <div class="sidebar-footer">
+                <div class="nav-category-title" aria-hidden="true">
+                    <span>&#9660;</span> SYSTEM HUD
+                </div>
+
+                <!-- Night Mode Toggle (Media Query & System Default Detection) -->
+                <div class="theme-toggle-container">
+                    <button type="button" id="theme-toggle" class="theme-toggle-btn sidebar-theme-toggle"
+                        aria-label="Toggle dark/light night mode" aria-pressed="false" title="Toggle Night / Day Theme">
+                        <span class="theme-icon-light" aria-hidden="true">&#9728;</span>
+                        <span class="theme-icon-dark" aria-hidden="true">&#9790;</span>
+                        <span class="theme-mode-text"></span>
+                    </button>
+                </div>
+
+                <!-- Retro Connection Status Indicator -->
+                <div class="sidebar-status-box" aria-label="System status online">
+                    <span class="status-blinker" aria-hidden="true"></span>
+                    <span class="status-text">HOST: ONLINE (PORT 3000)</span>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Mobile Drawer Overlay Backdrop -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <!-- ========================================================= -->
+    <!-- MAIN CONTENT                                              -->
+    <!-- ========================================================= -->
+    <main id="main-content">
+
+        <!-- ===================================================== -->
+        <!-- 1. HERO SECTION (PIXEL ART STYLE & BACKGROUND IMAGE) -->
+        <!-- ===================================================== -->
+        <section id="hero" class="section hero-section" aria-labelledby="hero-title">
+            <div class="container hero-container">
+
+                <!-- Left Column: Story, Dialogue, Welcome, & Actions -->
+                <div class="hero-content">
+
+                    <!-- Retro Quest Status Header -->
+                    <div class="quest-banner">
+                        <span class="quest-status-dot" aria-hidden="true"></span>
+                        <span class="quest-status-text">QUEST LOG: WORLD 1-1 // READY FOR ADVENTURE</span>
+                    </div>
+
+                    <!-- Welcome Title & Heading -->
+                    <div class="hero-title-group">
+                        <span class="hero-welcome-tag">&#9654; Welcome, Traveler!</span>
+                        <h1 id="hero-title" class="hero-title">
+                            Hi, I'm <span class="hero-title-name">Vaishnavi</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            <span aria-hidden="true">&#9881;</span> Full-Stack Software Engineer
+                        </p>
+                    </div>
+
+                    <!-- Dialogue Box for Brief Tagline -->
+                    <div class="hero-dialog-box pixel-box">
+                        <div class="dialog-speaker">VAISHNAVI.EXE</div>
+                        <p class="hero-tagline">
+                            "Level 99 Code Crafter. Building <strong>resilient systems</strong>, high-performance web
+                            applications, and <strong>pixel-perfect experiences</strong> from concept to cloud."<span
+                                class="pixel-cursor" aria-hidden="true">&#9608;</span>
+                        </p>
+                    </div>
+
+                    <!-- RPG Stats HUD (Health / Mana / Level) -->
+                    <div class="hero-hud">
+                        <div class="hud-row">
+                            <span class="hud-label"><span aria-hidden="true">&#10084;</span> HP: 100 / 100</span>
+                            <div class="hud-bar-container" title="Health Points">
+                                <div class="hud-bar-fill hud-bar-hp"></div>
+                            </div>
+                        </div>
+                        <div class="hud-row">
+                            <span class="hud-label"><span aria-hidden="true">&#9733;</span> MP: 90 / 100</span>
+                            <div class="hud-bar-container" title="Mana Points">
+                                <div class="hud-bar-fill hud-bar-mana"></div>
+                            </div>
+                        </div>
+                        <div class="hud-row">
+                            <span class="hud-label"><span aria-hidden="true">&#9889;</span> EXP: 85% (LVL 99)</span>
+                            <div class="hud-bar-container" title="Experience Points">
+                                <div class="hud-bar-fill hud-bar-exp"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call To Action Buttons (Pixel Style) -->
+                    <div class="hero-actions">
+                        <a href="#projects" class="pixel-btn pixel-btn-primary">
+                            <span aria-hidden="true">&#9876;</span> View Projects
+                        </a>
+                        <a href="Vaishnavi_Resume (2).pdf" class="pixel-btn pixel-btn-secondary" target="_blank"
+                            rel="noopener noreferrer">
+                            <span aria-hidden="true">&#128220;</span> Download Resume
+                        </a>
+                        <a href="#contact" class="pixel-btn pixel-btn-accent">
+                            <span aria-hidden="true">&#9993;</span> Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Tech Loot Badges -->
+                    <div class="hero-badges">
+                        <span class="hero-badges-title">EQUIPPED:</span>
+                        <span class="pixel-chip">JavaScript</span>
+                        <span class="pixel-chip">React</span>
+                        <span class="pixel-chip">Node.js</span>
+                        <span class="pixel-chip">Python</span>
+                        <span class="pixel-chip">SQL</span>
+                        <span class="pixel-chip">Docker</span>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Pixel Art Character Frame & Photo -->
+                <div class="hero-media-wrapper">
+                    <div class="pixel-card-frame">
+                        <!-- Corner Pixel Ornaments -->
+                        <span class="corner-pixel corner-tl" aria-hidden="true"></span>
+                        <span class="corner-pixel corner-tr" aria-hidden="true"></span>
+                        <span class="corner-pixel corner-bl" aria-hidden="true"></span>
+                        <span class="corner-pixel corner-br" aria-hidden="true"></span>
+
+                        <!-- Card Header -->
+                        <div class="card-header-bar">
+                            <span class="card-level-tag">LVL. 99</span>
+                            <span class="card-class-tag">CLASS: DEV</span>
+                        </div>
+
+                        <!-- Portrait Image Container with Retro Photo -->
+                        <div class="avatar-photo-box">
+                            <img src="PROFESSIONAL PHOTO.jpeg" alt="Professional portrait of Vaishnavi"
+                                class="hero-avatar-img">
+                            <div class="avatar-grid-overlay" aria-hidden="true"></div>
+                            <div class="avatar-status-badge">
+                                <span class="status-online-dot" aria-hidden="true"></span>
+                                <span>ONLINE</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer Stats -->
+                        <div class="card-footer-info">
+                            <span>ATK: 99 (CODE)</span>
+                            <span>DEF: 95 (TESTS)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Hero Section -->
+
+        <!-- ===================================================== -->
+        <!-- 2. ABOUT ME SECTION                                   -->
+        <!-- ===================================================== -->
+        <section id="about" class="section about-section" aria-labelledby="about-title">
+            <div class="container about-container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tag">// CHARACTER PROFILE</span>
+                    <h2 id="about-title" class="section-title">About Me</h2>
+                </div>
+
+                <!-- About Grid: Left (Avatar Card) + Right (Bio, Highlights, Interests) -->
+                <div class="about-grid">
+
+                    <!-- Left: Pixel Art Profile Avatar Card -->
+                    <aside class="about-avatar-card pixel-box">
+                        <div class="avatar-card-top">
+                            <span class="avatar-status-pill"><span class="avatar-status-dot" aria-hidden="true"></span>
+                                DEV READY</span>
+                            <span class="avatar-id-pill">ID: #0099</span>
+                        </div>
+                        <div class="avatar-img-frame">
+                            <img src="pixel_avatar.jpg" alt="Pixel art portrait of Vaishnavi" class="about-profile-img"
+                                loading="lazy">
+                            <div class="avatar-frame-overlay" aria-hidden="true"></div>
+                        </div>
+                        <div class="avatar-card-details">
+                            <h3 class="avatar-name">Vaishnavi</h3>
+                            <p class="avatar-role">Full-Stack Software Engineer</p>
+                            <div class="avatar-meta-list">
+                                <div class="avatar-meta-item">
+                                    <span class="meta-label">ROLE:</span>
+                                    <span class="meta-val">Full-Stack Developer</span>
+                                </div>
+                                <div class="avatar-meta-item">
+                                    <span class="meta-label">SPECIALTY:</span>
+                                    <span class="meta-val">Scalable Systems &amp; Web</span>
+                                </div>
+                                <div class="avatar-meta-item">
+                                    <span class="meta-label">STATUS:</span>
+                                    <span class="meta-val text-green">Available for Hire</span>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Right: Bio Content, Career Highlights, and Interests -->
+                    <div class="about-main-content">
+
+                        <!-- Short Bio Text (Clean Minimalistic Design) -->
+                        <div class="about-bio-box pixel-box">
+                            <h3 class="bio-lead">Engineering with purpose, passion, and precision.</h3>
+                            <p class="about-bio-text">
+                                Hello! I'm Vaishnavi, a Software Engineer dedicated to architecting reliable software
+                                solutions and creating intuitive, high-performance web applications. I love bridging the
+                                gap between rigorous backend systems and sleek, responsive user interfaces.
+                            </p>
+                            <p class="about-bio-text">
+                                Whether designing distributed microservices, fine-tuning database queries, or
+                                translating design ideas into pixel-perfect frontend experiences, I build software that
+                                is clean, testable, and built to scale.
+                            </p>
+                        </div>
+
+                        <!-- Career Highlights (Clean Metric Cards) -->
+                        <div class="about-highlights-wrapper">
+                            <h3 class="subsection-title">
+                                <span class="subsection-icon" aria-hidden="true">&#9733;</span> Career Highlights
+                            </h3>
+                            <div class="highlights-grid">
+                                <div class="highlight-card pixel-box">
+                                    <div class="highlight-stat">
+                                        <span class="highlight-number">3+</span>
+                                        <span class="highlight-unit">Years</span>
+                                    </div>
+                                    <p class="highlight-desc">Building modern, scalable web applications &amp; robust
+                                        APIs</p>
+                                </div>
+                                <div class="highlight-card pixel-box">
+                                    <div class="highlight-stat">
+                                        <span class="highlight-number">15+</span>
+                                        <span class="highlight-unit">Projects</span>
+                                    </div>
+                                    <p class="highlight-desc">Delivered from initial architecture to reliable production
+                                        deployment</p>
+                                </div>
+                                <div class="highlight-card pixel-box">
+                                    <div class="highlight-stat">
+                                        <span class="highlight-number">99.9%</span>
+                                        <span class="highlight-unit">Uptime</span>
+                                    </div>
+                                    <p class="highlight-desc">Designing resilient, fault-tolerant cloud services &amp;
+                                        pipelines</p>
+                                </div>
+                                <div class="highlight-card pixel-box">
+                                    <div class="highlight-stat">
+                                        <span class="highlight-number">B.Tech</span>
+                                        <span class="highlight-unit">CS &amp; Eng</span>
+                                    </div>
+                                    <p class="highlight-desc">Strong foundation in data structures, algorithms &amp;
+                                        system design</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Interests / Side Quests -->
+                        <div class="about-interests-wrapper">
+                            <h3 class="subsection-title">
+                                <span class="subsection-icon" aria-hidden="true">&#9881;</span> Interests &amp; Side
+                                Quests
+                            </h3>
+                            <div class="interests-tags">
+                                <span class="interest-chip">
+                                    <span class="chip-icon" aria-hidden="true">&#128377;</span> Retro Gaming &amp; Pixel
+                                    Art
+                                </span>
+                                <span class="interest-chip">
+                                    <span class="chip-icon" aria-hidden="true">&#9889;</span> System Design &amp;
+                                    Architecture
+                                </span>
+                                <span class="interest-chip">
+                                    <span class="chip-icon" aria-hidden="true">&#9749;</span> Specialty Coffee Brewing
+                                </span>
+                                <span class="interest-chip">
+                                    <span class="chip-icon" aria-hidden="true">&#9822;</span> Chess &amp; Logic Puzzles
+                                </span>
+                                <span class="interest-chip">
+                                    <span class="chip-icon" aria-hidden="true">&#128736;</span> Open Source &amp; Dev
+                                    Tooling
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End About Section -->
+
+        <!-- ===================================================== -->
+        <!-- 3. SKILLS SECTION (ABILITY TREE & INVENTORY)          -->
+        <!-- ===================================================== -->
+        <section id="skills" class="section skills-section" aria-labelledby="skills-title">
+            <div class="container skills-container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tag">// ABILITY TREE &amp; INVENTORY</span>
+                    <h2 id="skills-title" class="section-title">Technical Skills</h2>
+                    <p class="section-lead">
+                        Level-by-level breakdown of core programming proficiencies, backend systems, frameworks, and
+                        developer tooling.
+                    </p>
+                </div>
+
+                <!-- Skill Filter Tabs (Interactive Pixel Filters) -->
+                <div class="skills-filter-nav" role="tablist" aria-label="Skill Categories">
+                    <button type="button" class="pixel-btn filter-btn active" data-filter="all" role="tab"
+                        aria-selected="true">
+                        <span aria-hidden="true">&#9733;</span> [ALL ABILITIES]
+                    </button>
+                    <button type="button" class="pixel-btn filter-btn" data-filter="languages" role="tab"
+                        aria-selected="false">
+                        <span aria-hidden="true">&#128187;</span> [LANGUAGES]
+                    </button>
+                    <button type="button" class="pixel-btn filter-btn" data-filter="frameworks" role="tab"
+                        aria-selected="false">
+                        <span aria-hidden="true">&#9883;</span> [FRAMEWORKS]
+                    </button>
+                    <button type="button" class="pixel-btn filter-btn" data-filter="cloud-db" role="tab"
+                        aria-selected="false">
+                        <span aria-hidden="true">&#9729;</span> [DATABASES &amp; CLOUD]
+                    </button>
+                    <button type="button" class="pixel-btn filter-btn" data-filter="tools" role="tab"
+                        aria-selected="false">
+                        <span aria-hidden="true">&#128736;</span> [DEV TOOLS]
+                    </button>
+                </div>
+
+                <!-- Skills Categories Grid -->
+                <div class="skills-grid" id="skills-grid">
+
+                    <!-- ===================================================== -->
+                    <!-- CATEGORY 1: PROGRAMMING LANGUAGES                     -->
+                    <!-- Represents primary computational languages used for  -->
+                    <!-- logic, algorithms, scripting, and system building.   -->
+                    <!-- ===================================================== -->
+                    <div class="skill-category-card pixel-box" data-category="languages">
+                        <div class="category-header">
+                            <span class="category-icon" aria-hidden="true">&#128187;</span>
+                            <div class="category-info">
+                                <h3 class="category-title">Core Languages</h3>
+                                <span class="category-code">LANG.SYS // 5 ABILITIES</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-list">
+
+                            <!-- Skill 1: JavaScript & TypeScript -->
+                            <!-- Represents modern typed & dynamic frontend/backend scripting capability -->
+                            <div class="skill-item" data-level="95">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#9889;</span>
+                                        TypeScript / JavaScript
+                                    </span>
+                                    <span class="skill-level-badge">LVL 95 // 95%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="95"
+                                    aria-valuemin="0" aria-valuemax="100"
+                                    aria-label="TypeScript and JavaScript proficiency: 95%">
+                                    <div class="pixel-progress-fill fill-yellow" style="width: 95%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">ES6+, strictly typed architectures, asynchronous pipelines,
+                                    and full-stack runtime mastery.</p>
+                            </div>
+
+                            <!-- Skill 2: Python -->
+                            <!-- Represents rapid prototyping, data processing, scripting, and backend APIs -->
+                            <div class="skill-item" data-level="90">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#128013;</span>
+                                        Python
+                                    </span>
+                                    <span class="skill-level-badge">LVL 90 // 90%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="90"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="Python proficiency: 90%">
+                                    <div class="pixel-progress-fill fill-cyan" style="width: 90%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">FastAPI, automation scripts, algorithmic problem-solving, and
+                                    efficient backend services.</p>
+                            </div>
+
+                            <!-- Skill 3: Java -->
+                            <!-- Represents object-oriented design patterns and enterprise-grade backend stability -->
+                            <div class="skill-item" data-level="85">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#9749;</span>
+                                        Java
+                                    </span>
+                                    <span class="skill-level-badge">LVL 85 // 85%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="85"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="Java proficiency: 85%">
+                                    <div class="pixel-progress-fill fill-red" style="width: 85%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Strong OOP principles, multi-threading, Spring architecture,
+                                    and reliable system modeling.</p>
+                            </div>
+
+                            <!-- Skill 4: SQL -->
+                            <!-- Represents database querying, schema structuring, and relational algebra -->
+                            <div class="skill-item" data-level="90">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#128451;</span>
+                                        SQL (Relational Queries)
+                                    </span>
+                                    <span class="skill-level-badge">LVL 90 // 90%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="90"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="SQL proficiency: 90%">
+                                    <div class="pixel-progress-fill fill-blue" style="width: 90%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Complex joins, aggregation optimization, table
+                                    normalizations, and index profiling.</p>
+                            </div>
+
+                            <!-- Skill 5: C / C++ -->
+                            <!-- Represents foundational computer science, memory management, and performance -->
+                            <div class="skill-item" data-level="80">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#9881;</span>
+                                        C / C++
+                                    </span>
+                                    <span class="skill-level-badge">LVL 80 // 80%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="80"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="C and C++ proficiency: 80%">
+                                    <div class="pixel-progress-fill fill-purple" style="width: 80%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Pointer arithmetic, low-level data structure internals, and
+                                    memory allocation efficiency.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ===================================================== -->
+                    <!-- CATEGORY 2: FRAMEWORKS & WEB UI                       -->
+                    <!-- Represents modern reactive frontend ecosystems and    -->
+                    <!-- scalable server runtime frameworks.                  -->
+                    <!-- ===================================================== -->
+                    <div class="skill-category-card pixel-box" data-category="frameworks">
+                        <div class="category-header">
+                            <span class="category-icon" aria-hidden="true">&#9883;</span>
+                            <div class="category-info">
+                                <h3 class="category-title">Frameworks &amp; Web</h3>
+                                <span class="category-code">FRONTEND.UI // 4 ABILITIES</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-list">
+
+                            <!-- Skill 1: React & Next.js -->
+                            <!-- Represents component architecture, reactive state, and server-side rendering -->
+                            <div class="skill-item" data-level="95">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#9883;</span>
+                                        React.js &amp; Next.js
+                                    </span>
+                                    <span class="skill-level-badge">LVL 95 // 95%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="95"
+                                    aria-valuemin="0" aria-valuemax="100"
+                                    aria-label="React and Next.js proficiency: 95%">
+                                    <div class="pixel-progress-fill fill-cyan" style="width: 95%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Modular UI components, custom hooks, SSR/SSG rendering, and
+                                    fluid client state management.</p>
+                            </div>
+
+                            <!-- Skill 2: Node.js & Express -->
+                            <!-- Represents asynchronous backend services and middleware routing architecture -->
+                            <div class="skill-item" data-level="90">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#127760;</span>
+                                        Node.js &amp; Express
+                                    </span>
+                                    <span class="skill-level-badge">LVL 90 // 90%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="90"
+                                    aria-valuemin="0" aria-valuemax="100"
+                                    aria-label="Node.js and Express proficiency: 90%">
+                                    <div class="pixel-progress-fill fill-green" style="width: 90%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">High-throughput RESTful routing, authentication middlewares,
+                                    streaming, and npm package tooling.</p>
+                            </div>
+
+                            <!-- Skill 3: HTML5 & Modern CSS3 -->
+                            <!-- Represents semantic structure, accessibility standards, and responsive styling -->
+                            <div class="skill-item" data-level="95">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#127912;</span>
+                                        HTML5 &amp; Modern CSS3
+                                    </span>
+                                    <span class="skill-level-badge">LVL 95 // 95%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="95"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="HTML5 and CSS3 proficiency: 95%">
+                                    <div class="pixel-progress-fill fill-yellow" style="width: 95%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Semantic HTML, pixel art designs, CSS grid, flexbox, custom
+                                    variables, and micro-interactions.</p>
+                            </div>
+
+                            <!-- Skill 4: Tailwind CSS & Styling Libraries -->
+                            <!-- Represents rapid utility design systems and responsive component layouts -->
+                            <div class="skill-item" data-level="90">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#127963;</span>
+                                        Tailwind CSS &amp; UI Systems
+                                    </span>
+                                    <span class="skill-level-badge">LVL 90 // 90%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="90"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="Tailwind CSS proficiency: 90%">
+                                    <div class="pixel-progress-fill fill-blue" style="width: 90%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Utility-first scalable layouts, custom theme configurations,
+                                    and consistent design tokens.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ===================================================== -->
+                    <!-- CATEGORY 3: DATABASES & CLOUD ARCHITECTURE            -->
+                    <!-- Represents data persistence layers, cloud computing, -->
+                    <!-- and distributed service integrations.                -->
+                    <!-- ===================================================== -->
+                    <div class="skill-category-card pixel-box" data-category="cloud-db">
+                        <div class="category-header">
+                            <span class="category-icon" aria-hidden="true">&#9729;</span>
+                            <div class="category-info">
+                                <h3 class="category-title">Databases &amp; Cloud</h3>
+                                <span class="category-code">CLOUD_DB.NET // 4 ABILITIES</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-list">
+
+                            <!-- Skill 1: PostgreSQL & MySQL -->
+                            <!-- Represents ACID relational data storage and transactional guarantees -->
+                            <div class="skill-item" data-level="90">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#128018;</span>
+                                        PostgreSQL &amp; MySQL
+                                    </span>
+                                    <span class="skill-level-badge">LVL 90 // 90%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="90"
+                                    aria-valuemin="0" aria-valuemax="100"
+                                    aria-label="PostgreSQL and MySQL proficiency: 90%">
+                                    <div class="pixel-progress-fill fill-blue" style="width: 90%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Relational schema design, database migrations, connection
+                                    pooling, and performance tuning.</p>
+                            </div>
+
+                            <!-- Skill 2: MongoDB & NoSQL -->
+                            <!-- Represents flexible document storage and high-throughput read/write scaling -->
+                            <div class="skill-item" data-level="85">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#127793;</span>
+                                        MongoDB &amp; NoSQL
+                                    </span>
+                                    <span class="skill-level-badge">LVL 85 // 85%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="85"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="MongoDB proficiency: 85%">
+                                    <div class="pixel-progress-fill fill-green" style="width: 85%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Document validation schemas, aggregation pipelines, indexing,
+                                    and Mongoose ODM integration.</p>
+                            </div>
+
+                            <!-- Skill 3: AWS Cloud Infrastructure -->
+                            <!-- Represents cloud computing, managed deployment, and serverless architectures -->
+                            <div class="skill-item" data-level="82">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#9729;</span>
+                                        AWS Cloud Services
+                                    </span>
+                                    <span class="skill-level-badge">LVL 82 // 82%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="82"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="AWS proficiency: 82%">
+                                    <div class="pixel-progress-fill fill-yellow" style="width: 82%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">EC2 virtual instances, S3 asset storage, Lambda serverless
+                                    functions, and CloudWatch monitoring.</p>
+                            </div>
+
+                            <!-- Skill 4: RESTful & API Architecture -->
+                            <!-- Represents clean API interfaces, serialization, and endpoint contracts -->
+                            <div class="skill-item" data-level="92">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#128279;</span>
+                                        REST APIs &amp; OpenAPI
+                                    </span>
+                                    <span class="skill-level-badge">LVL 92 // 92%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="92"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="REST API proficiency: 92%">
+                                    <div class="pixel-progress-fill fill-purple" style="width: 92%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Stateless endpoint contracts, JWT authentication, rate
+                                    limiting, and Swagger documentation.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ===================================================== -->
+                    <!-- CATEGORY 4: DEVELOPER TOOLS & METHODOLOGIES           -->
+                    <!-- Represents DevOps, version control, build tools, and  -->
+                    <!-- engineering practices for reliable software shipping. -->
+                    <!-- ===================================================== -->
+                    <div class="skill-category-card pixel-box" data-category="tools">
+                        <div class="category-header">
+                            <span class="category-icon" aria-hidden="true">&#128736;</span>
+                            <div class="category-info">
+                                <h3 class="category-title">Dev Tools &amp; Methods</h3>
+                                <span class="category-code">DEV_OPS.CLI // 4 ABILITIES</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-list">
+
+                            <!-- Skill 1: Git & GitHub -->
+                            <!-- Represents version control, source history, branching, and team peer reviews -->
+                            <div class="skill-item" data-level="95">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#128025;</span>
+                                        Git &amp; GitHub Version Control
+                                    </span>
+                                    <span class="skill-level-badge">LVL 95 // 95%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="95"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="Git and GitHub proficiency: 95%">
+                                    <div class="pixel-progress-fill fill-red" style="width: 95%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Branching models, merge rebase management, pull requests,
+                                    issue tracking, and code reviews.</p>
+                            </div>
+
+                            <!-- Skill 2: Docker & Containerization -->
+                            <!-- Represents environment reproducibility and microservice packaging -->
+                            <div class="skill-item" data-level="85">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#128051;</span>
+                                        Docker &amp; Containers
+                                    </span>
+                                    <span class="skill-level-badge">LVL 85 // 85%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="85"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="Docker proficiency: 85%">
+                                    <div class="pixel-progress-fill fill-cyan" style="width: 85%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Multi-stage Dockerfiles, Docker Compose service
+                                    orchestration, and image optimization.</p>
+                            </div>
+
+                            <!-- Skill 3: CI/CD Pipelines -->
+                            <!-- Represents continuous integration, build tests, and automated releases -->
+                            <div class="skill-item" data-level="82">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#9881;</span>
+                                        CI/CD &amp; GitHub Actions
+                                    </span>
+                                    <span class="skill-level-badge">LVL 82 // 82%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="82"
+                                    aria-valuemin="0" aria-valuemax="100" aria-label="CI/CD proficiency: 82%">
+                                    <div class="pixel-progress-fill fill-yellow" style="width: 82%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Automated build workflows, testing matrix executions, lint
+                                    enforcement, and deployment hooks.</p>
+                            </div>
+
+                            <!-- Skill 4: System Design & Clean Code -->
+                            <!-- Represents maintainability, testing discipline, and high-level architectural patterns -->
+                            <div class="skill-item" data-level="88">
+                                <div class="skill-info-row">
+                                    <span class="skill-title">
+                                        <span class="skill-pointer" aria-hidden="true">&#9654;</span>
+                                        <span class="skill-symbol" aria-hidden="true">&#128737;</span>
+                                        System Design &amp; Testing
+                                    </span>
+                                    <span class="skill-level-badge">LVL 88 // 88%</span>
+                                </div>
+                                <div class="pixel-progress-track" role="progressbar" aria-valuenow="88"
+                                    aria-valuemin="0" aria-valuemax="100"
+                                    aria-label="System Design and Testing proficiency: 88%">
+                                    <div class="pixel-progress-fill fill-green" style="width: 88%;"></div>
+                                </div>
+                                <p class="skill-meta-desc">Design patterns, microservices decomposition, unit testing
+                                    with Jest, and modular architecture.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Skills Section -->
+
+        <!-- ===================================================== -->
+        <!-- 4. TIMELINE / EXPERIENCE & EDUCATION SECTION          -->
+        <!-- ===================================================== -->
+        <section id="timeline" class="section timeline-section" aria-labelledby="timeline-title">
+            <div class="container timeline-container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tag">// CAREER CHRONICLES &amp; MILESTONES</span>
+                    <h2 id="timeline-title" class="section-title">Experience &amp; Education Timeline</h2>
+                    <p class="section-lead">
+                        Key milestones, academic foundations, and engineering challenges conquered along the journey.
+                    </p>
+                </div>
+
+                <!-- Timeline Spine & Cards Wrapper -->
+                <div class="timeline-tree">
+
+                    <!-- Milestone 1: Current Software Engineer Role -->
+                    <article class="timeline-node">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <span class="marker-icon">&#128187;</span>
+                        </div>
+                        <div class="timeline-card rounded-card">
+                            <div class="timeline-card-header">
+                                <div class="timeline-badges-row">
+                                    <span class="timeline-category-badge badge-work">CAREER // EXPERIENCE</span>
+                                    <span class="timeline-date-badge">2024 - PRESENT</span>
+                                </div>
+                                <h3 class="timeline-role">Software Engineer</h3>
+                                <p class="timeline-company">Cloud Platforms &amp; Distributed Systems</p>
+                            </div>
+                            <div class="timeline-card-body">
+                                <p class="timeline-summary">
+                                    Leading the development of high-availability backend microservices, optimizing
+                                    database transactions, and implementing customer-facing web interfaces.
+                                </p>
+                                <ul class="timeline-achievements">
+                                    <li>Architected event-driven microservices reducing endpoint latency by 35%.</li>
+                                    <li>Automated Docker deployment pipelines on cloud infrastructure with 99.9% uptime.
+                                    </li>
+                                    <li>Engineered relational data models and optimized complex SQL queries for high
+                                        concurrency.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-tech-tags">
+                                <span class="timeline-tag">TypeScript</span>
+                                <span class="timeline-tag">Node.js</span>
+                                <span class="timeline-tag">PostgreSQL</span>
+                                <span class="timeline-tag">Docker</span>
+                                <span class="timeline-tag">AWS</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Milestone 2: Major Project - Distributed Collaboration Platform -->
+                    <article class="timeline-node">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <span class="marker-icon">&#9876;</span>
+                        </div>
+                        <div class="timeline-card rounded-card">
+                            <div class="timeline-card-header">
+                                <div class="timeline-badges-row">
+                                    <span class="timeline-category-badge badge-project">MAJOR PROJECT //
+                                        ARCHITECTURE</span>
+                                    <span class="timeline-date-badge">2024</span>
+                                </div>
+                                <h3 class="timeline-role">Real-Time Distributed Workspace</h3>
+                                <p class="timeline-company">High-Concurrency Collaboration System</p>
+                            </div>
+                            <div class="timeline-card-body">
+                                <p class="timeline-summary">
+                                    Engineered a multi-tenant real-time collaborative code editor and whiteboard
+                                    application supporting concurrent multi-user editing with conflict resolution.
+                                </p>
+                                <ul class="timeline-achievements">
+                                    <li>Implemented low-latency WebSocket communication layer with Redis pub/sub
+                                        messaging.</li>
+                                    <li>Handled 10,000+ simulated concurrent updates with Conflict-Free Replicated Data
+                                        Types (CRDTs).</li>
+                                    <li>Designed responsive pixel-perfect UI dashboard with granular user authorization.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="timeline-tech-tags">
+                                <span class="timeline-tag">React</span>
+                                <span class="timeline-tag">WebSockets</span>
+                                <span class="timeline-tag">Redis</span>
+                                <span class="timeline-tag">Node.js</span>
+                                <span class="timeline-tag">Tailwind</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Milestone 3: Software Engineering Intern -->
+                    <article class="timeline-node">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <span class="marker-icon">&#127775;</span>
+                        </div>
+                        <div class="timeline-card rounded-card">
+                            <div class="timeline-card-header">
+                                <div class="timeline-badges-row">
+                                    <span class="timeline-category-badge badge-work">INTERNSHIP // EXPERIENCE</span>
+                                    <span class="timeline-date-badge">2023 - 2024</span>
+                                </div>
+                                <h3 class="timeline-role">Software Engineering Intern</h3>
+                                <p class="timeline-company">Tech Innovation Labs</p>
+                            </div>
+                            <div class="timeline-card-body">
+                                <p class="timeline-summary">
+                                    Collaborated with senior software architects to develop responsive web modules,
+                                    streamline client reporting, and enhance test automation coverage.
+                                </p>
+                                <ul class="timeline-achievements">
+                                    <li>Built reusable React UI components integrated with RESTful FastAPI backends.
+                                    </li>
+                                    <li>Expanded integration test suites, increasing automated code coverage from 68% to
+                                        92%.</li>
+                                    <li>Partnered in agile sprint ceremonies, bi-weekly code reviews, and cross-team
+                                        demo days.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-tech-tags">
+                                <span class="timeline-tag">Python</span>
+                                <span class="timeline-tag">FastAPI</span>
+                                <span class="timeline-tag">React</span>
+                                <span class="timeline-tag">Git</span>
+                                <span class="timeline-tag">Jest</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Milestone 4: Major Project - Automated Code Health & AST Analyzer -->
+                    <article class="timeline-node">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <span class="marker-icon">&#9881;</span>
+                        </div>
+                        <div class="timeline-card rounded-card">
+                            <div class="timeline-card-header">
+                                <div class="timeline-badges-row">
+                                    <span class="timeline-category-badge badge-project">MAJOR PROJECT // DEV
+                                        TOOLING</span>
+                                    <span class="timeline-date-badge">2023</span>
+                                </div>
+                                <h3 class="timeline-role">Automated Code Health &amp; AST Profiler</h3>
+                                <p class="timeline-company">Developer Tooling &amp; Static Analysis</p>
+                            </div>
+                            <div class="timeline-card-body">
+                                <p class="timeline-summary">
+                                    Created an automated command-line developer utility that analyzes Abstract Syntax
+                                    Trees (AST) to identify cyclomatic complexity and dead-code anti-patterns.
+                                </p>
+                                <ul class="timeline-achievements">
+                                    <li>Parsed multi-file JavaScript and TypeScript repositories into traversable AST
+                                        trees.</li>
+                                    <li>Generated interactive visual reports pinpointing maintainability index scores.
+                                    </li>
+                                    <li>Packaged as a lightweight open-source CLI with customizable linting rules.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-tech-tags">
+                                <span class="timeline-tag">TypeScript</span>
+                                <span class="timeline-tag">Python</span>
+                                <span class="timeline-tag">Babel AST</span>
+                                <span class="timeline-tag">Node CLI</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Milestone 5: Bachelor of Technology (Education) -->
+                    <article class="timeline-node">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <span class="marker-icon">&#127891;</span>
+                        </div>
+                        <div class="timeline-card rounded-card">
+                            <div class="timeline-card-header">
+                                <div class="timeline-badges-row">
+                                    <span class="timeline-category-badge badge-edu">EDUCATION // DEGREE</span>
+                                    <span class="timeline-date-badge">2020 - 2024</span>
+                                </div>
+                                <h3 class="timeline-role">B.Tech in Computer Science &amp; Engineering</h3>
+                                <p class="timeline-company">University Faculty of Technology &amp; Engineering</p>
+                            </div>
+                            <div class="timeline-card-body">
+                                <p class="timeline-summary">
+                                    Graduated with First Class Honors (CGPA: 8.8 / 10). Built a rigorous theoretical and
+                                    applied foundation in computation, software engineering, and database systems.
+                                </p>
+                                <ul class="timeline-achievements">
+                                    <li>Core Coursework: Data Structures, Analysis of Algorithms, Operating Systems,
+                                        DBMS, Distributed Systems.</li>
+                                    <li>Authored Capstone Project on High-Performance Microservice Architectures.</li>
+                                    <li>Lead Organizer of Campus Hackathons &amp; Open Source Coding Guilds.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-tech-tags">
+                                <span class="timeline-tag">Algorithms</span>
+                                <span class="timeline-tag">Data Structures</span>
+                                <span class="timeline-tag">DBMS</span>
+                                <span class="timeline-tag">OOP Design</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Timeline Section -->
+
+        <!-- ===================================================== -->
+        <!-- 5. PROJECTS SECTION (QUEST LOG & CODE PORTFOLIO)      -->
+        <!-- ===================================================== -->
+        <section id="projects" class="section projects-section" aria-labelledby="projects-title">
+            <div class="container projects-container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tag">// COMPLETED QUESTS &amp; PRODUCTION BUILDS</span>
+                    <h2 id="projects-title" class="section-title">Featured Projects</h2>
+                    <p class="section-lead">
+                        Interactive showcases of full-stack web applications, distributed systems, developer tools, and
+                        data engines. Click any thumbnail to inspect technical architecture and deep-dive details.
+                    </p>
+                </div>
+
+                <!-- Projects Grid (Consistent Margins, Padding, and Aspect Ratio) -->
+                <div class="projects-grid">
+
+                    <!-- ================================================================== -->
+                    <!-- PROJECT 1: NEON CLOUD IDE                                          -->
+                    <!-- THUMBNAIL CONNECTION EXPLANATION:                                  -->
+                    <!-- The thumbnail wrapper has data-project-id="project-ide". Clicking  -->
+                    <!-- either the thumbnail preview or the "Inspect Architecture" button  -->
+                    <!-- fires a modal event that looks up the project-ide object in the    -->
+                    <!-- PROJECT_DATA store and populates the modal with full architecture, -->
+                    <!-- metrics, live preview link, and repository links.                 -->
+                    <!-- ================================================================== -->
+                    <article class="project-card pixel-box" data-project-id="project-ide">
+
+                        <!-- Clickable Project Thumbnail with Hover Effects -->
+                        <div class="project-thumbnail-wrapper" role="button" tabindex="0"
+                            aria-label="Open detailed view for Neon Cloud IDE"
+                            title="Click to view detailed architecture">
+                            <img src="project_ide.jpg"
+                                alt="Neon Cloud IDE interface preview showing syntax highlighting and terminal"
+                                class="project-thumb-img" loading="lazy">
+                            <div class="thumbnail-overlay">
+                                <span class="overlay-badge">&#9654; INSPECT PROJECT</span>
+                            </div>
+                            <div class="thumbnail-scanline" aria-hidden="true"></div>
+                        </div>
+
+                        <!-- Project Card Content -->
+                        <div class="project-card-content">
+                            <div class="project-card-meta">
+                                <span class="project-type-tag">FULL-STACK // DEV TOOL</span>
+                                <span class="project-status-dot" title="Production Ready">LIVE</span>
+                            </div>
+
+                            <h3 class="project-title">Neon Cloud IDE</h3>
+                            <p class="project-description">
+                                Browser-based cloud IDE featuring real-time collaborative editing, instant containerized
+                                bash terminals, and syntax highlighting across 20+ languages.
+                            </p>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="project-tech-tags">
+                                <span class="tech-pill">React.js</span>
+                                <span class="tech-pill">Node.js</span>
+                                <span class="tech-pill">WebSockets</span>
+                                <span class="tech-pill">Docker</span>
+                                <span class="tech-pill">Monaco</span>
+                            </div>
+
+                            <!-- Action Buttons: Modal Inspect Trigger & Direct Links -->
+                            <div class="project-card-actions">
+                                <button type="button" class="pixel-btn pixel-btn-primary btn-inspect"
+                                    data-project-target="project-ide" aria-haspopup="dialog">
+                                    <span aria-hidden="true">&#128269;</span> Details
+                                </button>
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="pixel-btn pixel-btn-secondary" aria-label="View source code on GitHub">
+                                    <span aria-hidden="true">&#128025;</span> GitHub
+                                </a>
+                                <a href="#projects" class="pixel-btn pixel-btn-accent" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Open live application demo">
+                                    <span aria-hidden="true">&#128279;</span> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ================================================================== -->
+                    <!-- PROJECT 2: BYTESTREAM DISTRIBUTED CLOUD MESH                       -->
+                    <!-- THUMBNAIL CONNECTION EXPLANATION:                                  -->
+                    <!-- Clickable thumbnail with data-project-id="project-cloud". Connects -->
+                    <!-- to Project Details modal displaying microservices topology, packet -->
+                    <!-- latency statistics, Docker orchestration, and failover mechanics.  -->
+                    <!-- ================================================================== -->
+                    <article class="project-card pixel-box" data-project-id="project-cloud">
+
+                        <!-- Clickable Project Thumbnail with Hover Effects -->
+                        <div class="project-thumbnail-wrapper" role="button" tabindex="0"
+                            aria-label="Open detailed view for ByteStream Cloud Mesh"
+                            title="Click to view detailed architecture">
+                            <img src="project_cloud.jpg"
+                                alt="Isometric diagram of distributed cloud microservices network clusters"
+                                class="project-thumb-img" loading="lazy">
+                            <div class="thumbnail-overlay">
+                                <span class="overlay-badge">&#9654; INSPECT PROJECT</span>
+                            </div>
+                            <div class="thumbnail-scanline" aria-hidden="true"></div>
+                        </div>
+
+                        <!-- Project Card Content -->
+                        <div class="project-card-content">
+                            <div class="project-card-meta">
+                                <span class="project-type-tag">DISTRIBUTED // CLOUD</span>
+                                <span class="project-status-dot" title="Active Cluster">ACTIVE</span>
+                            </div>
+
+                            <h3 class="project-title">ByteStream Cloud Mesh</h3>
+                            <p class="project-description">
+                                Fault-tolerant microservices telemetry and message broker engine capable of processing
+                                100K+ concurrent RPC requests with automatic circuit breaking.
+                            </p>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="project-tech-tags">
+                                <span class="tech-pill">Go / Python</span>
+                                <span class="tech-pill">gRPC</span>
+                                <span class="tech-pill">Redis</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">AWS</span>
+                            </div>
+
+                            <!-- Action Buttons: Modal Inspect Trigger & Direct Links -->
+                            <div class="project-card-actions">
+                                <button type="button" class="pixel-btn pixel-btn-primary btn-inspect"
+                                    data-project-target="project-cloud" aria-haspopup="dialog">
+                                    <span aria-hidden="true">&#128269;</span> Details
+                                </button>
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="pixel-btn pixel-btn-secondary" aria-label="View source code on GitHub">
+                                    <span aria-hidden="true">&#128025;</span> GitHub
+                                </a>
+                                <a href="#projects" class="pixel-btn pixel-btn-accent" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Open live application demo">
+                                    <span aria-hidden="true">&#128279;</span> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ================================================================== -->
+                    <!-- PROJECT 3: CYBERBRAIN AI TELEMETRY ENGINE                          -->
+                    <!-- THUMBNAIL CONNECTION EXPLANATION:                                  -->
+                    <!-- Clickable thumbnail with data-project-id="project-ai". Opens modal -->
+                    <!-- showing model training epochs, latency optimizations, neural       -->
+                    <!-- network layers, and API response caching architecture.             -->
+                    <!-- ================================================================== -->
+                    <article class="project-card pixel-box" data-project-id="project-ai">
+
+                        <!-- Clickable Project Thumbnail with Hover Effects -->
+                        <div class="project-thumbnail-wrapper" role="button" tabindex="0"
+                            aria-label="Open detailed view for CyberBrain AI Engine"
+                            title="Click to view detailed architecture">
+                            <img src="project_ai.jpg"
+                                alt="AI Neural Network dashboard preview with cybernetic brain diagram and metric graphs"
+                                class="project-thumb-img" loading="lazy">
+                            <div class="thumbnail-overlay">
+                                <span class="overlay-badge">&#9654; INSPECT PROJECT</span>
+                            </div>
+                            <div class="thumbnail-scanline" aria-hidden="true"></div>
+                        </div>
+
+                        <!-- Project Card Content -->
+                        <div class="project-card-content">
+                            <div class="project-card-meta">
+                                <span class="project-type-tag">AI // DATA ANALYTICS</span>
+                                <span class="project-status-dot" title="Model Online">V2.4</span>
+                            </div>
+
+                            <h3 class="project-title">CyberBrain AI Telemetry</h3>
+                            <p class="project-description">
+                                Machine learning observation dashboard monitoring live model inference latencies, token
+                                drift, and hardware utilization with real-time anomaly alerts.
+                            </p>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="project-tech-tags">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">FastAPI</span>
+                                <span class="tech-pill">PyTorch</span>
+                                <span class="tech-pill">React</span>
+                                <span class="tech-pill">Chart.js</span>
+                            </div>
+
+                            <!-- Action Buttons: Modal Inspect Trigger & Direct Links -->
+                            <div class="project-card-actions">
+                                <button type="button" class="pixel-btn pixel-btn-primary btn-inspect"
+                                    data-project-target="project-ai" aria-haspopup="dialog">
+                                    <span aria-hidden="true">&#128269;</span> Details
+                                </button>
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="pixel-btn pixel-btn-secondary" aria-label="View source code on GitHub">
+                                    <span aria-hidden="true">&#128025;</span> GitHub
+                                </a>
+                                <a href="#projects" class="pixel-btn pixel-btn-accent" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Open live application demo">
+                                    <span aria-hidden="true">&#128279;</span> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ================================================================== -->
+                    <!-- PROJECT 4: PIXELTRADE ALGORITHMIC TERMINAL                         -->
+                    <!-- THUMBNAIL CONNECTION EXPLANATION:                                  -->
+                    <!-- Clickable thumbnail with data-project-id="project-crypto". Connects-->
+                    <!-- to detail modal displaying WebSocket price engine, backtesting     -->
+                    <!-- algorithms, order book matching speed, and security practices.     -->
+                    <!-- ================================================================== -->
+                    <article class="project-card pixel-box" data-project-id="project-crypto">
+
+                        <!-- Clickable Project Thumbnail with Hover Effects -->
+                        <div class="project-thumbnail-wrapper" role="button" tabindex="0"
+                            aria-label="Open detailed view for PixelTrade Terminal"
+                            title="Click to view detailed architecture">
+                            <img src="project_crypto.jpg"
+                                alt="Pixel trading terminal preview with candlestick charts and order book"
+                                class="project-thumb-img" loading="lazy">
+                            <div class="thumbnail-overlay">
+                                <span class="overlay-badge">&#9654; INSPECT PROJECT</span>
+                            </div>
+                            <div class="thumbnail-scanline" aria-hidden="true"></div>
+                        </div>
+
+                        <!-- Project Card Content -->
+                        <div class="project-card-content">
+                            <div class="project-card-meta">
+                                <span class="project-type-tag">FINTECH // ENGINE</span>
+                                <span class="project-status-dot" title="Active Market Feed">FEED OK</span>
+                            </div>
+
+                            <h3 class="project-title">PixelTrade Market Terminal</h3>
+                            <p class="project-description">
+                                Low-latency financial trading simulator featuring live candlestick chart updates via
+                                streaming WebSockets, order matching, and backtesting simulation.
+                            </p>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="project-tech-tags">
+                                <span class="tech-pill">TypeScript</span>
+                                <span class="tech-pill">Next.js</span>
+                                <span class="tech-pill">WebSockets</span>
+                                <span class="tech-pill">Tailwind</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                            </div>
+
+                            <!-- Action Buttons: Modal Inspect Trigger & Direct Links -->
+                            <div class="project-card-actions">
+                                <button type="button" class="pixel-btn pixel-btn-primary btn-inspect"
+                                    data-project-target="project-crypto" aria-haspopup="dialog">
+                                    <span aria-hidden="true">&#128269;</span> Details
+                                </button>
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="pixel-btn pixel-btn-secondary" aria-label="View source code on GitHub">
+                                    <span aria-hidden="true">&#128025;</span> GitHub
+                                </a>
+                                <a href="#projects" class="pixel-btn pixel-btn-accent" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Open live application demo">
+                                    <span aria-hidden="true">&#128279;</span> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Projects Section -->
+
+        <!-- ===================================================== -->
+        <!-- PROJECT DETAILS MODAL COMPONENT                       -->
+        <!-- Connected to thumbnails via JavaScript data binding    -->
+        <!-- ===================================================== -->
+        <div id="project-modal" class="pixel-modal-backdrop" role="dialog" aria-modal="true"
+            aria-labelledby="modal-project-title" aria-hidden="true">
+            <div class="pixel-modal-container pixel-box">
+
+                <!-- Modal Top Navigation Bar -->
+                <div class="modal-header-bar">
+                    <div class="modal-badge-group">
+                        <span class="modal-status-badge" id="modal-project-category">PROJECT // SPECIFICATION</span>
+                        <span class="modal-level-tag">LEVEL: ARCHITECT</span>
+                    </div>
+                    <button type="button" id="modal-close-btn" class="modal-close-btn"
+                        aria-label="Close project details modal">
+                        <span aria-hidden="true">&#10005; [ESC]</span>
+                    </button>
+                </div>
+
+                <!-- Modal Scrollable Content -->
+                <div class="modal-body-content">
+
+                    <!-- Large Project Preview Thumbnail -->
+                    <div class="modal-thumbnail-frame">
+                        <img id="modal-project-img" src="" alt="Project detail screenshot" class="modal-main-img">
+                        <div class="modal-scanline-fx" aria-hidden="true"></div>
+                    </div>
+
+                    <!-- Title & Elevator Pitch -->
+                    <div class="modal-title-block">
+                        <h2 id="modal-project-title" class="modal-project-title">Project Title</h2>
+                        <p id="modal-project-tagline" class="modal-project-tagline">Brief project tagline</p>
+                    </div>
+
+                    <!-- Full Narrative & Problem Solved -->
+                    <div class="modal-details-grid">
+                        <div class="modal-detail-card pixel-box">
+                            <h4 class="detail-card-heading"><span aria-hidden="true">&#9881;</span> Problem &amp;
+                                Architectural Challenge</h4>
+                            <p id="modal-project-problem" class="detail-card-text"></p>
+                        </div>
+                        <div class="modal-detail-card pixel-box">
+                            <h4 class="detail-card-heading"><span aria-hidden="true">&#9876;</span> Solution &amp; Key
+                                Innovations</h4>
+                            <p id="modal-project-solution" class="detail-card-text"></p>
+                        </div>
+                    </div>
+
+                    <!-- Key Technical Metrics -->
+                    <div class="modal-metrics-box pixel-box">
+                        <h4 class="detail-card-heading"><span aria-hidden="true">&#9733;</span> Technical Metrics &amp;
+                            Benchmarks</h4>
+                        <ul id="modal-project-metrics" class="modal-metrics-list"></ul>
+                    </div>
+
+                    <!-- Technologies Used -->
+                    <div class="modal-tech-section">
+                        <h4 class="tech-section-heading">Equipped Stack &amp; Technologies:</h4>
+                        <div id="modal-project-tech" class="modal-tech-tags"></div>
+                    </div>
+
+                </div>
+
+                <!-- Modal Footer Action Buttons -->
+                <div class="modal-footer-actions">
+                    <a id="modal-demo-link" href="#" target="_blank" rel="noopener noreferrer"
+                        class="pixel-btn pixel-btn-primary">
+                        <span aria-hidden="true">&#128279;</span> Open Live Project
+                    </a>
+                    <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer"
+                        class="pixel-btn pixel-btn-secondary">
+                        <span aria-hidden="true">&#128025;</span> Inspect Repository
+                    </a>
+                    <button type="button" id="modal-dismiss-btn" class="pixel-btn pixel-btn-accent">
+                        [RETURN TO QUEST LOG]
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <!-- ===================================================== -->
+        <!-- 6. VIDEO HIGHLIGHT & DEVELOPER INTRODUCTION SECTION   -->
+        <!-- Dedicated showcase featuring an arcade CRT monitor    -->
+        <!-- chassis with responsive 16:9 YouTube video embed and   -->
+        <!-- detailed architectural video caption log.             -->
+        <!-- ===================================================== -->
+        <section id="spotlight" class="section video-spotlight-section" aria-labelledby="spotlight-title">
+            <div class="container video-spotlight-container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tag">// TRANSMISSION BROADCAST &amp; VIDEO REEL</span>
+                    <h2 id="spotlight-title" class="section-title">Portfolio Spotlight &amp; Intro</h2>
+                    <p class="section-lead">
+                        Deep-dive live demonstration of engineering methodology, full-stack architectural design, and
+                        system performance benchmarks. Watch the introduction and project walkthrough below.
+                    </p>
+                </div>
+
+                <!-- Video Showcase Layout -->
+                <div class="spotlight-content-layout">
+
+                    <!-- Arcade CRT Monitor Cabinet Frame -->
+                    <div class="crt-cabinet-frame pixel-box">
+
+                        <!-- CRT Top Bezel Bar with Retro Broadcast Status Indicators -->
+                        <div class="crt-bezel-top">
+                            <div class="crt-signal-status">
+                                <span class="crt-rec-indicator">
+                                    <span class="rec-dot" aria-hidden="true"></span> REC
+                                </span>
+                                <span class="crt-channel-tag">CH-01 // ARCHITECTURE_REEL.MP4</span>
+                            </div>
+                            <div class="crt-specs-tag">
+                                <span class="crt-res-badge">1080P // 60FPS</span>
+                                <span class="crt-freq-badge">15.75 kHz</span>
+                            </div>
+                        </div>
+
+                        <!-- Responsive Video Screen Container using modern aspect-ratio -->
+                        <div class="crt-screen-wrapper">
+                            <!-- Embedded YouTube Video with Privacy-Enhanced Domain -->
+                            <iframe id="spotlight-youtube-iframe" class="crt-video-iframe"
+                                src="https://www.youtube-nocookie.com/embed/zOjov-2OZ0E?rel=0&amp;modestbranding=1"
+                                title="Vaishnavi - Software Engineering Portfolio Walkthrough &amp; System Architecture Introduction"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen loading="lazy">
+                            </iframe>
+
+                            <!-- CRT Retro Scanlines Overlay (Pointer events disabled for seamless video controls) -->
+                            <div class="crt-screen-scanline" aria-hidden="true"></div>
+
+                            <!-- CRT Screen Corner Glare Effect -->
+                            <div class="crt-corner-glare" aria-hidden="true"></div>
+                        </div>
+
+                        <!-- CRT Bottom Bezel with Pixel Controls & Hardware Accents -->
+                        <div class="crt-bezel-bottom">
+                            <div class="crt-hardware-controls">
+                                <div class="crt-knobs-group">
+                                    <span class="crt-knob-label">BRIGHT</span>
+                                    <span class="crt-knob-dial" aria-hidden="true">&#9673;</span>
+                                </div>
+                                <div class="crt-knobs-group">
+                                    <span class="crt-knob-label">CONTRAST</span>
+                                    <span class="crt-knob-dial" aria-hidden="true">&#9673;</span>
+                                </div>
+                                <div class="crt-knobs-group">
+                                    <span class="crt-knob-label">VOLUME</span>
+                                    <span class="crt-knob-dial" aria-hidden="true">&#9673;</span>
+                                </div>
+                            </div>
+
+                            <!-- Decorative Speaker Grille -->
+                            <div class="crt-speaker-grille" aria-hidden="true">
+                                <span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+
+                            <!-- Power Indicator LED & Brand Plate -->
+                            <div class="crt-power-group">
+                                <span class="crt-brand-plate">8-BIT VISION</span>
+                                <div class="crt-power-status" title="Monitor Signal Locked">
+                                    <span class="crt-power-led" aria-hidden="true"></span>
+                                    <span class="crt-power-text">PWR</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End CRT Cabinet Frame -->
+
+                    <!-- Video Caption & Narrative Explanation Box -->
+                    <figure class="video-caption-box pixel-box">
+
+                        <!-- Caption Header Bar -->
+                        <div class="caption-header-bar">
+                            <div class="caption-header-left">
+                                <span class="caption-terminal-prefix" aria-hidden="true">&#9654;</span>
+                                <h3 class="caption-heading">Transmission Log: Video Walkthrough</h3>
+                            </div>
+                            <span class="caption-timestamp-badge">RUN TIME: 45 MINS</span>
+                        </div>
+
+                        <!-- Descriptive Caption Narrative -->
+                        <figcaption class="caption-body">
+                            <p class="caption-lead-text">
+                                <strong>System Architecture Walkthrough &amp; Developer Introduction:</strong>
+                                This featured video presentation offers an in-depth breakdown of foundational software
+                                engineering principles, core full-stack paradigms, distributed backend routing, and
+                                scalable algorithmic problem-solving.
+                            </p>
+                            <p class="caption-detail-text">
+                                Follow along as we dissect the mechanics behind browser-based cloud developer
+                                workspaces, high-throughput microservice communication over WebSockets, low-latency
+                                state synchronization, and practical strategies for preventing cascading distributed
+                                failovers.
+                            </p>
+                        </figcaption>
+
+                        <!-- Key Timestamps / Chapter Navigation Bar -->
+                        <div class="caption-chapters-panel">
+                            <span class="chapters-panel-title">
+                                <span aria-hidden="true">&#9881;</span> CHAPTER BREAKDOWN &amp; KEY BENCHMARKS:
+                            </span>
+                            <div class="chapters-grid">
+                                <div class="chapter-item">
+                                    <span class="chapter-time">[00:00]</span>
+                                    <span class="chapter-title">Introduction &amp; Engineering Philosophy</span>
+                                </div>
+                                <div class="chapter-item">
+                                    <span class="chapter-time">[12:40]</span>
+                                    <span class="chapter-title">Cloud IDE Monaco Integration &amp; Docker
+                                        Terminals</span>
+                                </div>
+                                <div class="chapter-item">
+                                    <span class="chapter-time">[24:15]</span>
+                                    <span class="chapter-title">Distributed Microservices Mesh &amp; Circuit
+                                        Breakers</span>
+                                </div>
+                                <div class="chapter-item">
+                                    <span class="chapter-time">[36:50]</span>
+                                    <span class="chapter-title">Real-Time ML Telemetry &amp; Anomaly Detection</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Controls: Direct Links -->
+                        <div class="caption-actions">
+                            <a href="https://www.youtube.com/watch?v=zOjov-2OZ0E" target="_blank"
+                                rel="noopener noreferrer" class="pixel-btn pixel-btn-primary"
+                                aria-label="Open video in high resolution on YouTube in new tab">
+                                <span aria-hidden="true">&#9654;</span> Watch on YouTube
+                            </a>
+                            <a href="#contact" class="pixel-btn pixel-btn-secondary"
+                                aria-label="Discuss architecture or ask questions">
+                                <span aria-hidden="true">&#128172;</span> Discuss Architecture
+                            </a>
+                            <span class="caption-note">
+                                <span aria-hidden="true">&#9432;</span> Responsive 16:9 viewport &bull; Full HD 1080p
+                                playback
+                            </span>
+                        </div>
+
+                    </figure>
+                    <!-- End Video Caption Box -->
+
+                </div>
+                <!-- End Spotlight Content Layout -->
+
+            </div>
+        </section>
+        <!-- End Video Highlight Section -->
+
+        <!-- ===================================================== -->
+        <!-- 7. TESTIMONIALS SECTION (GUILD REVIEWS & ENDORSEMENTS) -->
+        <!-- ===================================================== -->
+        <section id="testimonials" class="section testimonials-section" aria-labelledby="testimonials-title">
+            <div class="container testimonials-container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tag">// GUILD REVIEWS &amp; PARTY ENDORSEMENTS</span>
+                    <h2 id="testimonials-title" class="section-title">Guild Reviews &amp; Testimonials</h2>
+                    <p class="section-lead">
+                        Endorsements and feedback from engineering architects, team leads, and quest companions who have
+                        collaborated with Vaishnavi across high-stakes systems and full-stack software products.
+                    </p>
+                </div>
+
+                <!-- Testimonial Cards Grid -->
+                <div class="testimonials-grid">
+
+                    <!-- Testimonial Card 1 -->
+                    <article class="testimonial-card pixel-box" aria-label="Review by Arun Krishnamurthy">
+                        <div class="testimonial-card-header">
+                            <div class="testimonial-author-group">
+                                <div class="testimonial-avatar" aria-hidden="true">&#129497;</div>
+                                <div class="author-meta">
+                                    <h3 class="author-name">Arun Krishnamurthy</h3>
+                                    <span class="author-role">Staff Software Architect @ CloudScale</span>
+                                </div>
+                            </div>
+                            <span class="guild-badge badge-lead">PARTY LEADER</span>
+                        </div>
+                        <div class="testimonial-rating" aria-label="Rating: 5 out of 5 stars">
+                            <span class="rating-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <span class="rating-text">5.0 / 5.0</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            &ldquo;Vaishnavi is an exceptional engineer who bridges complex distributed system
+                            architecture with remarkably clean, maintainable code. Her work on fault tolerance
+                            algorithms was instrumental in cutting our inter-service RPC latency by 35%. A rare
+                            technical talent who elevates the entire team.&rdquo;
+                        </blockquote>
+                        <div class="testimonial-footer">
+                            <span class="quest-tag">&#9876; QUEST: ByteStream Cloud Mesh</span>
+                        </div>
+                    </article>
+
+                    <!-- Testimonial Card 2 -->
+                    <article class="testimonial-card pixel-box" aria-label="Review by Sarah Jenkins">
+                        <div class="testimonial-card-header">
+                            <div class="testimonial-author-group">
+                                <div class="testimonial-avatar" aria-hidden="true">&#128105;&#8205;&#128187;</div>
+                                <div class="author-meta">
+                                    <h3 class="author-name">Sarah Jenkins</h3>
+                                    <span class="author-role">Lead Frontend Architect @ DevTools Lab</span>
+                                </div>
+                            </div>
+                            <span class="guild-badge badge-master">GUILD MASTER</span>
+                        </div>
+                        <div class="testimonial-rating" aria-label="Rating: 5 out of 5 stars">
+                            <span class="rating-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <span class="rating-text">5.0 / 5.0</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            &ldquo;Collaborating with Vaishnavi on the browser runtime synchronization was a true
+                            pleasure. Her mastery of modern WebSockets, Operational Transformation, and accessible UI
+                            performance transformed a complex set of challenges into a blazing-fast, delightful
+                            experience. She delivers at the highest caliber.&rdquo;
+                        </blockquote>
+                        <div class="testimonial-footer">
+                            <span class="quest-tag">&#9876; QUEST: Neon Cloud IDE</span>
+                        </div>
+                    </article>
+
+                    <!-- Testimonial Card 3 -->
+                    <article class="testimonial-card pixel-box" aria-label="Review by Marcus Chen">
+                        <div class="testimonial-card-header">
+                            <div class="testimonial-author-group">
+                                <div class="testimonial-avatar" aria-hidden="true">&#129504;</div>
+                                <div class="author-meta">
+                                    <h3 class="author-name">Marcus Chen</h3>
+                                    <span class="author-role">Principal ML Systems Engineer @ NeuralGrid</span>
+                                </div>
+                            </div>
+                            <span class="guild-badge badge-commander">RAID COMMANDER</span>
+                        </div>
+                        <div class="testimonial-rating" aria-label="Rating: 5 out of 5 stars">
+                            <span class="rating-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <span class="rating-text">5.0 / 5.0</span>
+                        </div>
+                        <blockquote class="testimonial-quote">
+                            &ldquo;Rarely do you encounter an engineer equally comfortable profiling GPU tensor memory
+                            saturation in PyTorch and crafting responsive, retro pixel-perfect interfaces. Vaishnavi
+                            approaches complex engineering challenges with meticulous rigor and unstoppable
+                            passion.&rdquo;
+                        </blockquote>
+                        <div class="testimonial-footer">
+                            <span class="quest-tag">&#9876; QUEST: CyberBrain AI Telemetry</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        <!-- End Testimonials Section -->
+
+        <!-- ===================================================== -->
+        <!-- 8. AI CHAT SECTION (NEURAL TAVERN TERMINAL)            -->
+        <!-- Interactive AI chat interface simulating conversations -->
+        <!-- with an AI persona of Vaishnavi. Contains API hooks    -->
+        <!-- for future OpenAI / backend integration.               -->
+        <!-- ===================================================== -->
+        <section id="chat" class="section chat-section" aria-labelledby="chat-title">
+            <div class="container chat-container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tag">// NEURAL TAVERN &amp; INTERACTIVE NPC DIALOGUE</span>
+                    <h2 id="chat-title" class="section-title">Chat with AI Vaishnavi</h2>
+                    <p class="section-lead">
+                        Speak directly with an AI clone trained on my technical competencies, software architecture
+                        projects, quest timeline, and contact links. Choose a suggested query or ask your own question!
+                    </p>
+                </div>
+
+                <!-- Chat Terminal Window -->
+                <div class="chat-terminal-window pixel-box">
+
+                    <!-- Retro Window Title Bar -->
+                    <div class="chat-header-bar">
+                        <div class="terminal-controls" aria-hidden="true">
+                            <span class="terminal-dot dot-red"></span>
+                            <span class="terminal-dot dot-yellow"></span>
+                            <span class="terminal-dot dot-green"></span>
+                            <span class="terminal-window-title">SYS_AI://VAISHNAVI_BOT_V2.5.EXE</span>
+                        </div>
+                        <div class="chat-header-status">
+                            <span class="ai-status-blinker" aria-hidden="true"></span>
+                            <span class="ai-status-text">NEURAL CORE: ONLINE</span>
+                            <span class="ai-ping-tag">[12ms]</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Suggestions Prompt Chips -->
+                    <div class="chat-suggestions-bar" aria-label="Suggested questions">
+                        <span class="suggestions-label">
+                            <span aria-hidden="true">&#128161;</span> SUGGESTIONS:
+                        </span>
+                        <div class="suggestions-chips-group">
+                            <button type="button" class="chat-suggestion-chip"
+                                data-prompt="Tell me about yourself and your background.">
+                                <span>&#9654;</span> About Me
+                            </button>
+                            <button type="button" class="chat-suggestion-chip"
+                                data-prompt="What is your core tech stack and skills?">
+                                <span>&#9654;</span> Core Stack
+                            </button>
+                            <button type="button" class="chat-suggestion-chip"
+                                data-prompt="Tell me about your Neon Cloud IDE project.">
+                                <span>&#9654;</span> Neon Cloud IDE
+                            </button>
+                            <button type="button" class="chat-suggestion-chip"
+                                data-prompt="What kind of microservices architecture have you built?">
+                                <span>&#9654;</span> Cloud Mesh
+                            </button>
+                            <button type="button" class="chat-suggestion-chip"
+                                data-prompt="How can I contact or hire you for opportunities?">
+                                <span>&#9654;</span> Hire / Contact
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Messages Display Area (Scrollable Log) -->
+                    <div id="chat-messages" class="chat-messages-area" role="log" aria-live="polite"
+                        aria-relevant="additions text">
+
+                        <!-- Initial AI Greeting Message -->
+                        <div class="chat-message-row msg-ai">
+                            <div class="msg-avatar-wrapper">
+                                <img src="pixel_avatar.jpg" alt="AI Vaishnavi Pixel Avatar" class="msg-avatar-img">
+                                <span class="avatar-role-tag">AI</span>
+                            </div>
+                            <div class="msg-bubble-container">
+                                <div class="msg-meta-row">
+                                    <span class="msg-sender-name">Vaishnavi.AI</span>
+                                    <span class="msg-timestamp">SYSTEM READY</span>
+                                </div>
+                                <div class="msg-bubble pixel-box">
+                                    <p>
+                                        Greetings, traveler! &#128075; Welcome to my interactive console. I'm an AI
+                                        simulation of <strong>Vaishnavi</strong>, designed to answer any questions about
+                                        my software engineering projects (like the Neon Cloud IDE and ByteStream Cloud
+                                        Mesh), full-stack skill tree, career quest milestones, or collaboration
+                                        inquiries.
+                                    </p>
+                                    <p class="msg-hint">
+                                        Feel free to ask a question below or click any of the prompt chips above!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Typing Indicator Element (Toggled dynamically by JS) -->
+                        <div id="chat-typing-indicator" class="chat-message-row msg-ai typing-indicator"
+                            style="display: none;" aria-hidden="true">
+                            <div class="msg-avatar-wrapper">
+                                <img src="pixel_avatar.jpg" alt="AI Avatar" class="msg-avatar-img">
+                                <span class="avatar-role-tag">AI</span>
+                            </div>
+                            <div class="msg-bubble-container">
+                                <div class="msg-meta-row">
+                                    <span class="msg-sender-name">Vaishnavi.AI</span>
+                                    <span class="msg-timestamp">COMPUTING...</span>
+                                </div>
+                                <div class="msg-bubble typing-bubble pixel-box">
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-text">Formulating response...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Messages Display Area -->
+
+                    <!-- Chat Form & Input Area -->
+                    <form id="chat-form" class="chat-input-form" autocomplete="off">
+                        <div class="chat-input-container">
+                            <span class="terminal-prompt-sym" aria-hidden="true">&gt;_</span>
+                            <label for="chat-input" class="sr-only">Type a message to chat with AI Vaishnavi</label>
+                            <input type="text" id="chat-input" class="chat-input-field"
+                                placeholder="Type a message about projects, skills, or hiring... [Press Enter]"
+                                maxlength="500" required>
+                        </div>
+                        <div class="chat-form-actions">
+                            <button type="submit" id="chat-send-btn" class="pixel-btn pixel-btn-primary"
+                                aria-label="Send message to AI Vaishnavi">
+                                <span aria-hidden="true">&#9654;</span> SEND
+                            </button>
+                            <button type="button" id="chat-clear-btn" class="pixel-btn pixel-btn-secondary"
+                                aria-label="Clear chat history and restart conversation">
+                                <span aria-hidden="true">&#8635;</span> RESET
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Developer Info & API Integration Status Footer -->
+                    <div class="chat-dev-bar">
+                        <div class="dev-status-item">
+                            <span class="dev-badge">&#9881; MODE: LOCAL_SIMULATOR</span>
+                            <span class="dev-note">// Ready for OpenAI GPT-4o / Custom Backend API Endpoint
+                                integration</span>
+                        </div>
+                        <div class="dev-shortcut-hint">
+                            <span>PRO-TIP: Press [ENTER] to send &bull; Type &quot;help&quot; for topics</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Chat Terminal Window -->
+
+            </div>
+        </section>
+        <!-- End Chat Section -->
+
+        <!-- ===================================================== -->
+        <!-- 9. CONTACT SECTION (TRANSMISSION CONSOLE & DISPATCH) -->
+        <!-- ===================================================== -->
+        <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+            <div class="container contact-container">
+
+                <!-- Section Header -->
+                <div class="section-header">
+                    <span class="section-tag">// TRANSMISSION CONSOLE &amp; DIRECT DISPATCH</span>
+                    <h2 id="contact-title" class="section-title">Get In Touch &amp; Connect</h2>
+                    <p class="section-lead">
+                        Ready to deploy high-impact software, discuss distributed system architectures, or recruit a
+                        senior engineering ally for your team? Dispatch a transmission directly below or grab my
+                        verified credentials.
+                    </p>
+                </div>
+
+                <!-- Contact 2-Column Grid -->
+                <div class="contact-grid">
+
+                    <!-- Left Column: Direct Comms HUD & Codex Download -->
+                    <div class="contact-info-card pixel-box">
+                        <div class="contact-card-header">
+                            <div class="contact-status-pill">
+                                <span class="status-pulse-dot" aria-hidden="true"></span>
+                                <span class="status-label">STATUS: COMMS ONLINE</span>
+                            </div>
+                            <span class="channel-freq">FREQ: 144.80 MHz // SECURE</span>
+                        </div>
+
+                        <div class="contact-card-body">
+                            <h3 class="contact-box-title">Direct Communication Relays</h3>
+                            <p class="contact-box-desc">
+                                Whether you have an open engineering requisition, an open-source collaboration idea, or
+                                an invitation for technical speaking, direct comms are monitored daily.
+                            </p>
+
+                            <!-- Channel List -->
+                            <div class="comms-channel-list">
+
+                                <!-- Email Channel with Copy Button -->
+                                <div class="comms-channel-item">
+                                    <div class="channel-icon-wrap" aria-hidden="true">&#9993;</div>
+                                    <div class="channel-details">
+                                        <span class="channel-label">PRIMARY INBOX</span>
+                                        <a href="mailto:vaishnavi.dev@example.com" class="channel-value email-link"
+                                            id="contact-email-link">
+                                            vaishnavi.dev@example.com
+                                        </a>
+                                    </div>
+                                    <button type="button" id="copy-email-btn"
+                                        class="channel-copy-btn pixel-btn pixel-btn-secondary"
+                                        aria-label="Copy email address to clipboard" title="Copy email to clipboard">
+                                        <span aria-hidden="true">&#128203;</span> COPY
+                                    </button>
+                                </div>
+
+                                <!-- Location Channel -->
+                                <div class="comms-channel-item">
+                                    <div class="channel-icon-wrap" aria-hidden="true">&#127757;</div>
+                                    <div class="channel-details">
+                                        <span class="channel-label">CURRENT BASE &amp; TIMEZONE</span>
+                                        <span class="channel-value">Bangalore, India &bull; IST (UTC+5:30)</span>
+                                    </div>
+                                    <span class="channel-tag">REMOTE FRIENDLY</span>
+                                </div>
+
+                                <!-- Response SLA -->
+                                <div class="comms-channel-item">
+                                    <div class="channel-icon-wrap" aria-hidden="true">&#9201;</div>
+                                    <div class="channel-details">
+                                        <span class="channel-label">GUARANTEED RESPONSE SLA</span>
+                                        <span class="channel-value">&lt; 24 Hours for Quest Inquiries</span>
+                                    </div>
+                                    <span class="channel-tag tag-sla">FAST TURNAROUND</span>
+                                </div>
+
+                                <!-- Social / Network Handles -->
+                                <div class="comms-channel-item">
+                                    <div class="channel-icon-wrap" aria-hidden="true">&#128187;</div>
+                                    <div class="channel-details">
+                                        <span class="channel-label">DISCORD &amp; MATRIX</span>
+                                        <span class="channel-value">vaishnavi.dev#0001</span>
+                                    </div>
+                                    <span class="channel-tag">ONLINE</span>
+                                </div>
+
+                            </div>
+                            <!-- End Channel List -->
+
+                            <!-- Quest Codex / Resume Download Box -->
+                            <div class="resume-download-box pixel-box">
+                                <div class="resume-header">
+                                    <span class="resume-icon" aria-hidden="true">&#128196;</span>
+                                    <div class="resume-text">
+                                        <h4 class="resume-title">Official Engineering Resume</h4>
+                                        <span class="resume-meta">Updated 2026 Edition &bull; PDF Format &bull; 106
+                                            KB</span>
+                                    </div>
+                                </div>
+                                <div class="resume-actions">
+                                    <a href="Vaishnavi_Resume (2).pdf" download="Vaishnavi_Resume.pdf"
+                                        id="resume-download-btn" class="pixel-btn pixel-btn-primary resume-btn"
+                                        aria-label="Download Vaishnavi's official resume PDF (106 KB)">
+                                        <span aria-hidden="true">&#128190;</span> DOWNLOAD RESUME
+                                    </a>
+                                    <a href="Vaishnavi_Resume (2).pdf" target="_blank" rel="noopener noreferrer"
+                                        id="resume-preview-btn" class="pixel-btn pixel-btn-secondary resume-btn"
+                                        aria-label="Preview Vaishnavi's official resume PDF in a new tab">
+                                        <span aria-hidden="true">&#128065;</span> VIEW IN TAB
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Left Column -->
+
+                    <!-- Right Column: Interactive Arcade Transmission Form -->
+                    <div class="contact-form-box pixel-box">
+                        <div class="form-terminal-bar">
+                            <div class="terminal-ctrls" aria-hidden="true">
+                                <span class="term-dot dot-red"></span>
+                                <span class="term-dot dot-yellow"></span>
+                                <span class="term-dot dot-green"></span>
+                            </div>
+                            <span class="form-terminal-title">// DISPATCH_TRANSMISSION.SH</span>
+                            <span class="form-terminal-codec">ENCRYPTION: AES-256</span>
+                        </div>
+
+                        <!-- Form Status Banner -->
+                        <div id="contact-status-banner" class="contact-status-banner" role="alert" aria-live="assertive"
+                            style="display: none;">
+                        </div>
+
+                        <!-- Active Contact Form -->
+                        <form id="contact-form" class="pixel-contact-form" autocomplete="off" novalidate>
+
+                            <!-- Sender Name Input -->
+                            <div class="form-group">
+                                <label for="contact-name" class="form-label">
+                                    <span class="label-code" aria-hidden="true">[01]</span>
+                                    <span>SENDER NAME / CODENAME:</span>
+                                    <span class="required-asterisk" aria-hidden="true">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix-icon" aria-hidden="true">&#128100;</span>
+                                    <input type="text" id="contact-name" name="name" class="pixel-input"
+                                        placeholder="e.g. Satoshi Nakamoto or Ada Lovelace" maxlength="80" required
+                                        aria-required="true">
+                                </div>
+                                <span class="field-error-msg" id="name-error" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Sender Email Input -->
+                            <div class="form-group">
+                                <label for="contact-email" class="form-label">
+                                    <span class="label-code" aria-hidden="true">[02]</span>
+                                    <span>RETURN FREQUENCY (EMAIL):</span>
+                                    <span class="required-asterisk" aria-hidden="true">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix-icon" aria-hidden="true">&#9993;</span>
+                                    <input type="email" id="contact-email" name="email" class="pixel-input"
+                                        placeholder="e.g. satoshi@bitcoin.org" maxlength="100" required
+                                        aria-required="true">
+                                </div>
+                                <span class="field-error-msg" id="email-error" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Subject / Quest Category Select -->
+                            <div class="form-group">
+                                <label for="contact-subject" class="form-label">
+                                    <span class="label-code" aria-hidden="true">[03]</span>
+                                    <span>QUEST OBJECTIVE / CATEGORY:</span>
+                                    <span class="required-asterisk" aria-hidden="true">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix-icon" aria-hidden="true">&#9876;</span>
+                                    <select id="contact-subject" name="subject" class="pixel-select" required
+                                        aria-required="true">
+                                        <option value="" disabled selected>-- Select Mission Category --</option>
+                                        <option value="Full-Time Engineering Role">Full-Time Software Engineer Position
+                                            (HQ / Remote)</option>
+                                        <option value="Distributed Systems Consulting">Architecture &amp; Cloud
+                                            Infrastructure Consulting</option>
+                                        <option value="Open Source Collaboration">Open-Source Collaboration or Hackathon
+                                        </option>
+                                        <option value="Speaking / Tech Mentorship">Conference Talk / Guest Lecture /
+                                            Mentorship</option>
+                                        <option value="General Engineering Coffee Chat">General Inquiry / Engineering
+                                            Coffee Chat</option>
+                                    </select>
+                                </div>
+                                <span class="field-error-msg" id="subject-error" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Transmission Message Textarea -->
+                            <div class="form-group">
+                                <div class="label-with-counter">
+                                    <label for="contact-message" class="form-label">
+                                        <span class="label-code" aria-hidden="true">[04]</span>
+                                        <span>MISSION BRIEFING / MESSAGE:</span>
+                                        <span class="required-asterisk" aria-hidden="true">*</span>
+                                    </label>
+                                    <span class="char-counter" id="contact-char-counter" aria-live="polite">0 / 1000
+                                        CHARS</span>
+                                </div>
+                                <div class="input-wrapper">
+                                    <textarea id="contact-message" name="message" rows="5" class="pixel-textarea"
+                                        placeholder="Outline your team, mission objective, technology stack requirements, or message details here..."
+                                        maxlength="1000" required aria-required="true"></textarea>
+                                </div>
+                                <span class="field-error-msg" id="message-error" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="contact-form-actions">
+                                <button type="submit" id="contact-submit-btn"
+                                    class="pixel-btn pixel-btn-primary form-submit-btn"
+                                    aria-label="Transmit contact message">
+                                    <span aria-hidden="true">&#9654;</span> TRANSMIT DISPATCH
+                                </button>
+                                <button type="button" id="contact-reset-btn"
+                                    class="pixel-btn pixel-btn-secondary form-reset-btn"
+                                    aria-label="Clear form fields and restart buffer">
+                                    <span aria-hidden="true">&#8635;</span> CLEAR BUFFER
+                                </button>
+                            </div>
+
+                        </form>
+                        <!-- End Contact Form -->
+
+                    </div>
+                    <!-- End Right Column -->
+
+                </div>
+                <!-- End Contact Grid -->
+
+            </div>
+        </section>
+        <!-- End Contact Section -->
+
+    </main>
+    <!-- End Main Content -->
+
+    <!-- ========================================================= -->
+    <!-- FOOTER                                                    -->
+    <!-- ========================================================= -->
+    <footer id="footer" class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+
+            <!-- Footer Arcade Header Ribbon -->
+            <div class="footer-ribbon-bar">
+                <div class="footer-level-status">
+                    <span class="ribbon-star" aria-hidden="true">&#9733;</span>
+                    <span class="ribbon-text">LEVEL 99 SOFTWARE ENGINEER // ALL QUESTS CLEARED</span>
+                    <span class="ribbon-star" aria-hidden="true">&#9733;</span>
+                </div>
+                <div class="footer-hud-signal">
+                    <span class="footer-signal-dot" aria-hidden="true"></span>
+                    <span class="footer-signal-text">COMMS: OPEN FOR OPPORTUNITIES</span>
+                </div>
+            </div>
+
+            <!-- Social Media Profile Links (Evenly Spaced, Pixel Art Styled & Fully Accessible) -->
+            <nav class="footer-social-section" aria-label="Social media profiles and external contact links">
+                <h3 class="sr-only">Social Media Links</h3>
+                <div class="footer-social-links">
+
+                    <!-- 1. GitHub -->
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                        class="social-icon-btn pixel-box" data-platform="github"
+                        aria-label="Visit Vaishnavi's GitHub profile for open-source code and projects (opens in new tab)"
+                        title="GitHub Profile">
+                        <svg class="footer-pixel-svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"
+                            aria-hidden="true">
+                            <path
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                        </svg>
+                        <span class="social-tooltip" aria-hidden="true">GITHUB</span>
+                        <span class="sr-only">GitHub</span>
+                    </a>
+
+                    <!-- 2. LinkedIn -->
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                        class="social-icon-btn pixel-box" data-platform="linkedin"
+                        aria-label="Visit Vaishnavi's LinkedIn profile for professional experience and career connections (opens in new tab)"
+                        title="LinkedIn Profile">
+                        <svg class="footer-pixel-svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"
+                            aria-hidden="true">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.54a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z" />
+                        </svg>
+                        <span class="social-tooltip" aria-hidden="true">LINKEDIN</span>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+
+                    <!-- 3. X / Twitter -->
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                        class="social-icon-btn pixel-box" data-platform="twitter"
+                        aria-label="Visit Vaishnavi's X / Twitter profile for engineering insights and updates (opens in new tab)"
+                        title="X / Twitter Profile">
+                        <svg class="footer-pixel-svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"
+                            aria-hidden="true">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                        <span class="social-tooltip" aria-hidden="true">TWITTER / X</span>
+                        <span class="sr-only">X / Twitter</span>
+                    </a>
+
+                    <!-- 4. LeetCode -->
+                    <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer"
+                        class="social-icon-btn pixel-box" data-platform="leetcode"
+                        aria-label="Visit Vaishnavi's LeetCode profile for algorithmic problem solving and data structures (opens in new tab)"
+                        title="LeetCode Profile">
+                        <svg class="footer-pixel-svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"
+                            aria-hidden="true">
+                            <path
+                                d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.815 3.666 5.961 5.961 0 0 0 3.018-.466 5.86 5.86 0 0 0 2.39-1.78l3.1-3.733a1.38 1.38 0 0 0-.256-1.95 1.374 1.374 0 0 0-1.94.256l-3.08 3.708a3.178 3.178 0 0 1-1.307.97 3.23 3.23 0 0 1-1.636.252 3.21 3.21 0 0 1-2.61-1.99 3.25 3.25 0 0 1-.219-.554 3.09 3.09 0 0 1-.035-1.31 3.01 3.01 0 0 1 .687-1.196L9.67 9.877l3.813-4.082a1.376 1.376 0 0 0-.962-2.357zm2.463 9.477a1.378 1.378 0 0 0-1.378 1.378 1.378 1.378 0 0 0 1.378 1.378h5.676a1.378 1.378 0 0 0 1.378-1.378 1.378 1.378 0 0 0-1.378-1.378z" />
+                        </svg>
+                        <span class="social-tooltip" aria-hidden="true">LEETCODE</span>
+                        <span class="sr-only">LeetCode</span>
+                    </a>
+
+                    <!-- 5. Dev.to / Technical Blog -->
+                    <a href="https://dev.to" target="_blank" rel="noopener noreferrer" class="social-icon-btn pixel-box"
+                        data-platform="devto"
+                        aria-label="Visit Vaishnavi's technical engineering blog on Dev.to (opens in new tab)"
+                        title="Dev.to Technical Blog">
+                        <svg class="footer-pixel-svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"
+                            aria-hidden="true">
+                            <path
+                                d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H5.32v4.36h1.26c.38 0 .66-.07.84-.23.18-.16.27-.42.27-.79v-2.32c0-.37-.09-.63-.27-.79zm5.33-.23h-2.11v4.36h2.11c.42 0 .73-.1.93-.31.2-.21.3-.53.3-.97v-1.8c0-.44-.1-.76-.3-.97-.2-.21-.51-.31-.93-.31zm9.25-6.82v18a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1zM8.7 13.06c0 .76-.23 1.32-.69 1.68-.46.36-1.14.54-2.03.54H3.97V8.72h2.01c.89 0 1.57.18 2.03.54.46.36.69.92.69 1.68v2.12zm5.72-.44c0 .76-.2 1.32-.61 1.68-.41.36-.98.54-1.72.54h-3.37V8.72h3.37c.74 0 1.31.18 1.72.54.41.36.61.92.61 1.68v1.68zm5.61-3.9h-1.47l-1.57 4.79-1.57-4.79h-1.47l2.25 6.56h1.58l2.25-6.56z" />
+                        </svg>
+                        <span class="social-tooltip" aria-hidden="true">DEV.TO</span>
+                        <span class="sr-only">Dev.to</span>
+                    </a>
+
+                    <!-- 6. Direct Email -->
+                    <a href="mailto:vaishnavi.dev@example.com" class="social-icon-btn pixel-box" data-platform="email"
+                        aria-label="Send a direct email message to Vaishnavi (opens default mail client)"
+                        title="Send Direct Email">
+                        <svg class="footer-pixel-svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"
+                            aria-hidden="true">
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span class="social-tooltip" aria-hidden="true">EMAIL</span>
+                        <span class="sr-only">Email</span>
+                    </a>
+
+                </div>
+            </nav>
+
+            <!-- Navigation Breadcrumbs / Fast Jump Map -->
+            <div class="footer-quick-nav" aria-label="Footer quick navigation">
+                <span class="footer-nav-label">QUICK TELEPORT:</span>
+                <div class="footer-nav-links">
+                    <a href="#hero">Home</a>
+                    <span class="nav-separator" aria-hidden="true">&bull;</span>
+                    <a href="#about">About</a>
+                    <span class="nav-separator" aria-hidden="true">&bull;</span>
+                    <a href="#skills">Skills</a>
+                    <span class="nav-separator" aria-hidden="true">&bull;</span>
+                    <a href="#timeline">Timeline</a>
+                    <span class="nav-separator" aria-hidden="true">&bull;</span>
+                    <a href="#projects">Projects</a>
+                    <span class="nav-separator" aria-hidden="true">&bull;</span>
+                    <a href="#spotlight">Spotlight</a>
+                    <span class="nav-separator" aria-hidden="true">&bull;</span>
+                    <a href="#testimonials">Testimonials</a>
+                    <span class="nav-separator" aria-hidden="true">&bull;</span>
+                    <a href="#chat">Chat</a>
+                    <span class="nav-separator" aria-hidden="true">&bull;</span>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Information & Back to Top -->
+            <div class="footer-bottom-bar">
+
+                <!-- Copyright & Built With Notice -->
+                <div class="footer-copy-group">
+                    <p class="footer-copyright">
+                        &copy; <span id="current-year">2026</span> <strong>Vaishnavi</strong> &bull; Software Engineer
+                        Portfolio.
+                    </p>
+                    <p class="footer-engine-tag">
+                        Crafted with Vanilla HTML5, CSS3 Pixel Art &amp; Pure JavaScript &bull; All Rights Reserved.
+                    </p>
+                </div>
+
+                <!-- Retro Back to Top Link -->
+                <a href="#hero" class="pixel-btn pixel-btn-primary back-to-top"
+                    aria-label="Jump back to top of the page">
+                    <span aria-hidden="true">&#9650;</span> RETURN TO TOP
+                </a>
+
+            </div>
+
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT SCRIPTS PLACEHOLDER                            -->
+    <!-- ========================================================= -->
+    <!-- Script placeholder for theme toggle logic and dynamic interactions -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

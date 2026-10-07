@@ -1,0 +1,5478 @@
+/* ==========================================================================
+   PIXEL ART PORTFOLIO - CORE STYLESHEET
+   Software Engineer Portfolio | 8-Bit / 16-Bit Retro Arcade Aesthetic
+   ========================================================================== */
+
+/* --- Import Google Pixel Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen:wght@400;700&display=swap');
+
+/* ==========================================================================
+   THEME VARIABLES & CSS MEDIA QUERY (SYSTEM DEFAULT DETECTION)
+   ========================================================================== */
+
+/* 1. Default Theme Variables (Light Mode / Day Theme) */
+:root {
+    --font-pixel-heading: 'Press Start 2P', monospace;
+    --font-pixel-body: 'VT323', monospace;
+    --font-pixel-ui: 'Silkscreen', monospace;
+
+    /* Layout metrics */
+    --sidebar-width: 275px;
+
+    /* Light Theme Palette */
+    --bg-base: #f5f0e6;
+    --bg-surface: #ffffff;
+    --bg-surface-alt: #ece5d6;
+    --bg-hero-overlay: rgba(245, 240, 230, 0.88);
+    
+    --pixel-border: #1d1e2c;
+    --pixel-border-light: #484b6a;
+    --pixel-shadow: #111116;
+    --pixel-highlight: #ffffff;
+    
+    --text-primary: #15161e;
+    --text-secondary: #434654;
+    --text-muted: #6e738d;
+    
+    --accent-red: #ff3366;
+    --accent-green: #10b981;
+    --accent-blue: #3b82f6;
+    --accent-purple: #6d28d9;
+    --accent-gold: #f59e0b;
+    --accent-cyan: #06b6d4;
+
+    --hp-bar: #ef4444;
+    --mana-bar: #3b82f6;
+    --exp-bar: #10b981;
+
+    --scanline-color: rgba(0, 0, 0, 0.04);
+    --window-glow: rgba(0, 0, 0, 0.1);
+
+    /* --- Consistent Rounded Corners Tokens --- */
+    /* Purpose: Softens retro pixel elements for modern neo-arcade look across cards and buttons */
+    --radius-sm: 4px;       /* Small chips, badges, and status pills */
+    --radius-btn: 6px;      /* Consistent curvature for all buttons, inputs, and chips */
+    --radius-card: 10px;    /* Consistent curvature for cards, frames, and content boxes */
+    --radius-lg: 14px;      /* Major windows, modal dialogs, and monitor chassis */
+    --radius-pill: 9999px;  /* Fully rounded tags and status indicators */
+
+    /* --- Consistent Drop Shadow Tokens --- */
+    /* Purpose: Blends crisp retro stepped shadow with subtle ambient drop shadow for tactile 3D depth */
+    --shadow-default: 4px 4px 0 0 var(--pixel-shadow), 0 6px 16px -2px rgba(0, 0, 0, 0.15);
+    --shadow-card: 6px 6px 0 0 var(--pixel-shadow), 0 10px 24px -4px rgba(0, 0, 0, 0.18);
+    --shadow-hover: 8px 8px 0 0 var(--pixel-shadow), 0 16px 32px -4px rgba(0, 0, 0, 0.25);
+    --shadow-btn: 4px 4px 0 0 var(--pixel-shadow), 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+    --shadow-btn-hover: 6px 6px 0 0 var(--pixel-shadow), 0 8px 18px -2px rgba(0, 0, 0, 0.25);
+
+    /* --- Frosted Glassmorphism Tokens --- */
+    /* Purpose: Creates glassmorphic blur depth over patterned / scanline backgrounds */
+    --blur-glass: blur(10px);
+    --blur-glass-heavy: blur(16px);
+}
+
+/* 2. Media Query Detecting User's Default Browser Theme (Dark / Night Mode) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-base: #0c0d14;
+        --bg-surface: #141724;
+        --bg-surface-alt: #1d2136;
+        --bg-hero-overlay: rgba(12, 13, 20, 0.90);
+        
+        --pixel-border: #89ddff;
+        --pixel-border-light: #3d4361;
+        --pixel-shadow: #000000;
+        --pixel-highlight: #282d47;
+        
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        
+        --accent-red: #f43f5e;
+        --accent-green: #34d399;
+        --accent-blue: #60a5fa;
+        --accent-purple: #a855f7;
+        --accent-gold: #fbbf24;
+        --accent-cyan: #22d3ee;
+
+        --hp-bar: #f43f5e;
+        --mana-bar: #38bdf8;
+        --exp-bar: #34d399;
+
+        --scanline-color: rgba(0, 0, 0, 0.25);
+        --window-glow: rgba(137, 221, 255, 0.15);
+    }
+}
+
+/* 3. Manual Override: Explicit Light Theme */
+[data-theme="light"] {
+    --bg-base: #f5f0e6;
+    --bg-surface: #ffffff;
+    --bg-surface-alt: #ece5d6;
+    --bg-hero-overlay: rgba(245, 240, 230, 0.88);
+    
+    --pixel-border: #1d1e2c;
+    --pixel-border-light: #484b6a;
+    --pixel-shadow: #111116;
+    --pixel-highlight: #ffffff;
+    
+    --text-primary: #15161e;
+    --text-secondary: #434654;
+    --text-muted: #6e738d;
+    
+    --accent-red: #ff3366;
+    --accent-green: #10b981;
+    --accent-blue: #3b82f6;
+    --accent-purple: #6d28d9;
+    --accent-gold: #f59e0b;
+    --accent-cyan: #06b6d4;
+
+    --hp-bar: #ef4444;
+    --mana-bar: #3b82f6;
+    --exp-bar: #10b981;
+
+    --scanline-color: rgba(0, 0, 0, 0.04);
+    --window-glow: rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Manual Override: Explicit Dark Theme */
+[data-theme="dark"] {
+    --bg-base: #0c0d14;
+    --bg-surface: #141724;
+    --bg-surface-alt: #1d2136;
+    --bg-hero-overlay: rgba(12, 13, 20, 0.90);
+    
+    --pixel-border: #89ddff;
+    --pixel-border-light: #3d4361;
+    --pixel-shadow: #000000;
+    --pixel-highlight: #282d47;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --accent-red: #f43f5e;
+    --accent-green: #34d399;
+    --accent-blue: #60a5fa;
+    --accent-purple: #a855f7;
+    --accent-gold: #fbbf24;
+    --accent-cyan: #22d3ee;
+
+    --hp-bar: #f43f5e;
+    --mana-bar: #38bdf8;
+    --exp-bar: #34d399;
+
+    --scanline-color: rgba(0, 0, 0, 0.25);
+    --window-glow: rgba(137, 221, 255, 0.15);
+}
+
+/* ==========================================================================
+   GLOBAL RESET & PIXEL ART FOUNDATION
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-pixel-body);
+    font-size: 1.35rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* CRT Screen Scanlines Overlay Effect */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--scanline-color),
+        var(--scanline-color) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Pixel Art Links */
+a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: var(--accent-gold);
+}
+
+/* Containers */
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ==========================================================================
+   PIXEL ART UI HELPERS & BOXES
+   ========================================================================== */
+
+/* Pixelated Window / Frame */
+/* Purpose: Applies consistent rounded corners and layered drop shadow to soften the sharp retro frame into a polished modern arcade container */
+.pixel-box {
+    background-color: var(--bg-surface);
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-card),
+        inset -3px -3px 0 0 var(--pixel-border-light),
+        inset 3px 3px 0 0 var(--pixel-highlight);
+    position: relative;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.2s ease;
+}
+
+/* Double Pixel Border Accent (Arcade Dialogue Box) */
+/* Purpose: Gives arcade dialog boxes frosted glass depth and smooth rounded corners while preserving the dashed inner retro outline */
+.pixel-dialog {
+    background-color: var(--bg-surface);
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 
+        var(--shadow-card),
+        0 0 20px var(--window-glow);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pixel-dialog::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 2px dashed var(--pixel-border-light);
+    border-radius: calc(var(--radius-lg) - 4px);
+    pointer-events: none;
+}
+
+/* Retro Pixel Buttons */
+/* Purpose: Consistent button rounded corners with layered drop shadow and tactile spring physics on hover/press */
+.pixel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 0.85rem 1.4rem;
+    color: #ffffff;
+    background-color: var(--pixel-border);
+    border: 3px solid #000000;
+    border-radius: var(--radius-btn);
+    box-shadow: 
+        inset 2px 2px 0 0 rgba(255, 255, 255, 0.4),
+        inset -2px -2px 0 0 rgba(0, 0, 0, 0.5),
+        var(--shadow-btn);
+    cursor: pointer;
+    user-select: none;
+    text-shadow: 1px 1px 0 #000000;
+    /* Smooth cubic-bezier transition for snappy tactile arcade feedback */
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.18s ease, 
+                border-color 0.18s ease;
+    text-decoration: none;
+}
+
+/* Purpose: Interactive hover elevation lifts button with expanded drop shadow */
+.pixel-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+        inset 2px 2px 0 0 rgba(255, 255, 255, 0.6),
+        inset -2px -2px 0 0 rgba(0, 0, 0, 0.6),
+        var(--shadow-btn-hover);
+    color: #ffffff;
+}
+
+/* Purpose: Tactile active press provides mechanical arcade pushbutton depression */
+.pixel-btn:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 
+        inset 2px 2px 0 0 rgba(0, 0, 0, 0.6),
+        inset -2px -2px 0 0 rgba(255, 255, 255, 0.4),
+        2px 2px 0 0 var(--pixel-shadow);
+}
+
+.pixel-btn-primary {
+    background-color: #4f46e5;
+    border-color: #2e1065;
+}
+
+.pixel-btn-primary:hover {
+    background-color: #6366f1;
+    border-color: #4338ca;
+}
+
+.pixel-btn-secondary {
+    background-color: #059669;
+    border-color: #064e3b;
+}
+
+.pixel-btn-secondary:hover {
+    background-color: #10b981;
+    border-color: #059669;
+}
+
+.pixel-btn-accent {
+    background-color: #d97706;
+    border-color: #78350f;
+}
+
+.pixel-btn-accent:hover {
+    background-color: #f59e0b;
+    border-color: #b45309;
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURE (DESKTOP VERTICAL SIDEBAR & CONTENT AREA)
+   ========================================================================== */
+#main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    transition: margin-left 0.25s ease;
+}
+
+.site-footer {
+    margin-left: var(--sidebar-width);
+    transition: margin-left 0.25s ease;
+}
+
+/* ==========================================================================
+   MOBILE TOP HEADER (VISIBLE ON MOBILE / TABLET ONLY)
+   ========================================================================== */
+/* Purpose: Sticky frosted glass top bar with background blur to subtly diffuse underlying content */
+.mobile-top-bar {
+    display: none;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--bg-surface);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border-bottom: 4px solid var(--pixel-border);
+    box-shadow: 0 4px 0 0 var(--pixel-shadow), 0 8px 24px -4px rgba(0, 0, 0, 0.25);
+    padding: 0.65rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    text-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.mobile-brand .brand-icon {
+    font-size: 0.95rem;
+    animation: pixel-bounce 1s infinite alternate;
+}
+
+.mobile-brand .brand-name {
+    color: var(--accent-gold);
+}
+
+/* Purpose: Consistent rounded corners, drop shadow, and smooth spring hover transition for mobile menu toggle */
+.mobile-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    background-color: var(--bg-surface-alt);
+    color: var(--text-primary);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    padding: 0.45rem 0.75rem;
+    box-shadow: var(--shadow-btn);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.15s ease, 
+                border-color 0.15s ease;
+}
+
+.mobile-menu-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+.mobile-menu-btn:active {
+    transform: translateY(2px);
+    box-shadow: 1px 1px 0 0 var(--pixel-shadow);
+}
+
+.menu-bars-icon {
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   VERTICAL NAVIGATION BAR (LEFT SIDEBAR)
+   ========================================================================== */
+.pixel-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--bg-surface);
+    border-right: 5px solid var(--pixel-border);
+    box-shadow: 6px 0 0 0 var(--pixel-shadow);
+    z-index: 1050;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: transform 0.25s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+/* Custom Pixel Scrollbar for Sidebar */
+.pixel-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+.pixel-sidebar::-webkit-scrollbar-track {
+    background: var(--bg-surface-alt);
+    border-left: 2px solid var(--pixel-border-light);
+}
+.pixel-sidebar::-webkit-scrollbar-thumb {
+    background: var(--pixel-border);
+    border: 1px solid var(--pixel-highlight);
+}
+
+.sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 1.25rem 1rem;
+    gap: 1.25rem;
+    position: relative;
+}
+
+/* --- Sidebar Header --- */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.85rem;
+    border-bottom: 3px solid var(--pixel-border);
+    position: relative;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Purpose: Rounded player badge with consistent drop shadow for avatar header */
+.sidebar-player-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: var(--accent-gold);
+    color: #1a1a24;
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    font-family: var(--font-pixel-heading);
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    animation: pixel-bounce 1.5s infinite alternate;
+}
+
+.sidebar-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.brand-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.72rem;
+    color: var(--text-primary);
+    text-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.brand-class {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    letter-spacing: 0.5px;
+}
+
+/* Mobile Close Drawer Button */
+/* Purpose: Rounded close button with tactile hover feedback for mobile drawer */
+.mobile-close-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--bg-surface-alt);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-btn);
+    color: var(--accent-red);
+    font-family: var(--font-pixel-heading);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.15s ease, 
+                color 0.15s ease;
+}
+
+.mobile-close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+    background-color: var(--accent-red);
+    color: #ffffff;
+}
+
+.mobile-close-btn:active {
+    transform: translateY(2px);
+}
+
+/* --- Sidebar Navigation Links --- */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.nav-category-title {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.56rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.55rem;
+    border-bottom: 2px dashed var(--pixel-border-light);
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+/* Purpose: Consistent rounded corners and smooth spring-like hover transition sliding items rightward with tactile drop shadow */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.65rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    color: var(--text-primary);
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: var(--radius-btn);
+    position: relative;
+    user-select: none;
+    text-decoration: none;
+    transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.15s ease;
+}
+
+.sidebar-link .link-cursor {
+    color: var(--accent-gold);
+    font-size: 0.6rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+.sidebar-link .link-icon {
+    font-size: 0.85rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.sidebar-link .link-label {
+    flex-grow: 1;
+    white-space: nowrap;
+}
+
+/* Hover & Focus State */
+/* Purpose: Smooth lateral displacement with tactile drop shadow for menu selection */
+.sidebar-link:hover {
+    background-color: var(--bg-surface-alt);
+    border-color: var(--pixel-border);
+    box-shadow: var(--shadow-default);
+    color: var(--accent-gold);
+    transform: translateX(6px);
+}
+
+.sidebar-link:hover .link-cursor {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Active Section Indicator (Scrollspy / Selected link) */
+/* Purpose: Active navigation state with persistent highlight and tactile inset glow */
+.sidebar-link.active,
+.sidebar-link[aria-current="page"] {
+    background-color: var(--bg-surface-alt);
+    border-color: var(--accent-cyan);
+    box-shadow: 
+        var(--shadow-default),
+        inset 2px 2px 0 0 rgba(255, 255, 255, 0.2);
+    color: var(--accent-cyan);
+    transform: translateX(6px);
+}
+
+.sidebar-link.active .link-cursor,
+.sidebar-link[aria-current="page"] .link-cursor {
+    opacity: 1;
+    color: var(--accent-cyan);
+    transform: translateX(0);
+    animation: pixel-bounce 1s infinite alternate;
+}
+
+/* Accessible Focus-Visible */
+.sidebar-link:focus-visible {
+    outline: 3px dashed var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* --- Sidebar Footer & HUD Controls --- */
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 3px solid var(--pixel-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.sidebar-theme-toggle {
+    width: 100%;
+    justify-content: center;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.62rem;
+}
+
+/* Purpose: Small status badge with rounded corners and subtle drop shadow */
+.sidebar-status-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-surface-alt);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-default);
+    padding: 0.4rem 0.55rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.52rem;
+    color: var(--text-muted);
+}
+
+.status-blinker {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-green);
+    border: 1px solid #000000;
+    border-radius: 2px;
+    animation: pixel-pulse 1.2s infinite;
+    flex-shrink: 0;
+}
+
+.status-text {
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Backdrop for Mobile Drawer */
+/* Purpose: Diffuses background viewport with frosted glass blur when mobile drawer is revealed */
+.sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    z-index: 1040;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+/* --- NIGHT MODE TOGGLE STYLING --- */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Purpose: Rounded theme switch button with layered shadow and smooth interactive lift */
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    background-color: var(--bg-surface-alt);
+    color: var(--text-primary);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    padding: 0.45rem 0.75rem;
+    box-shadow: var(--shadow-btn);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.15s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+    border-color: var(--accent-gold);
+}
+
+.theme-toggle-btn:active {
+    transform: translateY(2px);
+    box-shadow: 1px 1px 0 0 var(--pixel-shadow);
+}
+
+.theme-icon-light,
+.theme-icon-dark {
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+/* Media Query-driven Toggle Icon Detection (Default System Theme) */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-icon-light {
+        display: none;
+    }
+    :root:not([data-theme="light"]) .theme-icon-dark {
+        display: inline-block;
+    }
+    :root:not([data-theme="light"]) .theme-mode-text::after {
+        content: "NIGHT";
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .theme-icon-light {
+        display: inline-block;
+    }
+    :root:not([data-theme="dark"]) .theme-icon-dark {
+        display: none;
+    }
+    :root:not([data-theme="dark"]) .theme-mode-text::after {
+        content: "DAY";
+    }
+}
+
+/* Explicit Overrides when user toggles manually */
+[data-theme="dark"] .theme-icon-light {
+    display: none !important;
+}
+[data-theme="dark"] .theme-icon-dark {
+    display: inline-block !important;
+}
+[data-theme="dark"] .theme-mode-text::after {
+    content: "NIGHT" !important;
+}
+
+[data-theme="light"] .theme-icon-light {
+    display: inline-block !important;
+}
+[data-theme="light"] .theme-icon-dark {
+    display: none !important;
+}
+[data-theme="light"] .theme-mode-text::after {
+    content: "DAY" !important;
+}
+
+/* ==========================================================================
+   HERO SECTION (PIXEL ART STYLE & BACKGROUND IMAGE)
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    min-height: calc(100vh - 75px);
+    display: flex;
+    align-items: center;
+    padding: 3.5rem 0;
+    
+    /* User-Provided Background Image with Pixel Texture Overlay */
+    /* Purpose: Fixed background attachment produces authentic parallax scrolling where the hero backdrop remains stationary while foreground content glides over it */
+    background-image: 
+        linear-gradient(var(--bg-hero-overlay), var(--bg-hero-overlay)),
+        url('BACKGROUND%20IMAGE.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-bottom: 5px solid var(--pixel-border);
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* CRT Vignette on Hero */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.45) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+/* --- Hero Left: Content & Dialogue --- */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Retro Top Banner / Quest Header */
+/* Purpose: Rounded badge with consistent drop shadow and subtle hover lift */
+.quest-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--bg-surface-alt);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    padding: 0.4rem 0.8rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.68rem;
+    color: var(--accent-gold);
+    width: fit-content;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quest-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+}
+
+.quest-status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-green);
+    border: 1px solid #000;
+    border-radius: 2px;
+    animation: pixel-pulse 1.2s infinite;
+}
+
+/* Hero Title & Welcome */
+.hero-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.hero-welcome-tag {
+    font-family: var(--font-pixel-ui);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-family: var(--font-pixel-heading);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.25;
+    color: var(--text-primary);
+    text-shadow: 
+        3px 3px 0 var(--pixel-shadow),
+        -1px -1px 0 var(--pixel-border-light);
+    letter-spacing: -0.5px;
+}
+
+.hero-title-name {
+    color: var(--accent-gold);
+    display: inline-block;
+}
+
+.hero-subtitle {
+    font-family: var(--font-pixel-ui);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent-purple);
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Dialogue Box for Brief Tagline */
+/* Purpose: Consistent rounded corners with frosted glass backdrop blur and layered drop shadow for high-contrast dialogue readability */
+.hero-dialog-box {
+    background-color: var(--bg-surface);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-card),
+        inset 2px 2px 0 0 var(--pixel-highlight);
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.hero-dialog-box:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.dialog-speaker {
+    position: absolute;
+    top: -14px;
+    left: 16px;
+    background-color: var(--pixel-border);
+    color: #ffffff;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.6rem;
+    padding: 2px 8px;
+    border: 2px solid #000000;
+    border-radius: var(--radius-sm);
+    box-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.hero-tagline {
+    font-family: var(--font-pixel-body);
+    font-size: 1.45rem;
+    line-height: 1.45;
+    color: var(--text-primary);
+    margin-top: 0.25rem;
+}
+
+.hero-tagline strong {
+    color: var(--accent-cyan);
+    font-weight: normal;
+}
+
+/* Blinking Terminal Cursor */
+.pixel-cursor {
+    display: inline-block;
+    color: var(--accent-gold);
+    font-family: var(--font-pixel-heading);
+    font-weight: bold;
+    animation: blink-cursor 0.9s infinite step-start;
+}
+
+/* RPG Stats Bar HUD (Health / Mana / Level) */
+/* Purpose: Frosted glass blur and consistent card rounded corners for the RPG HUD stats container */
+.hero-hud {
+    background-color: var(--bg-surface-alt);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.hud-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+}
+
+.hud-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-primary);
+}
+
+.hud-bar-container {
+    flex-grow: 1;
+    max-width: 170px;
+    height: 14px;
+    background-color: #111;
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.hud-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.hud-bar-hp {
+    width: 100%;
+    background-color: var(--hp-bar);
+}
+
+.hud-bar-mana {
+    width: 90%;
+    background-color: var(--mana-bar);
+}
+
+.hud-bar-exp {
+    width: 82%;
+    background-color: var(--exp-bar);
+}
+
+/* Call to Action Buttons */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Tech Badges / Loot */
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.75rem;
+}
+
+.hero-badges-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+/* Purpose: Pill-rounded tags with tactile shadow and lift on hover */
+.pixel-chip {
+    background-color: var(--bg-surface-alt);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-default);
+    padding: 0.25rem 0.65rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.15s ease;
+}
+
+.pixel-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+    border-color: var(--accent-gold);
+}
+
+/* Hero Floating Parallax Animation */
+/* Purpose: Idle floating 3D parallax micro-animation providing life and dimension to the hero avatar sprite */
+@keyframes hero-float-parallax {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* --- Hero Right: Pixel Art Character Frame --- */
+.hero-media-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: hero-float-parallax 4.5s ease-in-out infinite;
+}
+
+/* Purpose: Character frame with consistent rounded corners, glowing drop shadow, and smooth elevation hover transition */
+.pixel-card-frame {
+    position: relative;
+    background-color: var(--bg-surface);
+    border: 5px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-card),
+        0 0 25px var(--window-glow);
+    padding: 1rem;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pixel-card-frame:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 
+        var(--shadow-hover),
+        0 0 35px var(--window-glow);
+}
+
+/* Pixel Corner Accents on Card */
+.corner-pixel {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-gold);
+    border-radius: 1px;
+}
+.corner-tl { top: -4px; left: -4px; }
+.corner-tr { top: -4px; right: -4px; }
+.corner-bl { bottom: -4px; left: -4px; }
+.corner-br { bottom: -4px; right: -4px; }
+
+.card-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.62rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px dashed var(--pixel-border-light);
+}
+
+.card-level-tag {
+    color: var(--accent-gold);
+}
+
+.card-class-tag {
+    color: var(--accent-cyan);
+}
+
+/* Portrait Image Container */
+.avatar-photo-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.1;
+    overflow: hidden;
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    background-color: #1a1a24;
+}
+
+.hero-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(108%) saturate(105%);
+}
+
+.avatar-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+}
+
+.avatar-status-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: var(--pixel-border);
+    color: #ffffff;
+    border: 2px solid #000;
+    border-radius: var(--radius-sm);
+    box-shadow: 2px 2px 0 #000;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.55rem;
+    padding: 0.3rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.status-online-dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--accent-green);
+    border-radius: 0;
+}
+
+.card-footer-info {
+    margin-top: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   OTHER SECTIONS (MINIMAL BASELINE PLACEHOLDER STYLES)
+   ========================================================================== */
+.section {
+    padding: 4.5rem 0;
+    border-bottom: 4px solid var(--pixel-border);
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    text-shadow: 3px 3px 0 var(--pixel-shadow);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   ABOUT ME SECTION STYLING (CLEAN & MINIMALISTIC PIXEL DESIGN)
+   ========================================================================== */
+.about-section {
+    background-color: var(--bg-base);
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 2.25rem;
+}
+
+.section-tag {
+    display: inline-block;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 310px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* --- Left: Pixel Art Profile Avatar Card --- */
+/* Purpose: Consistent card rounded corners and layered drop shadow anchoring the profile card */
+.about-avatar-card {
+    background-color: var(--bg-surface);
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: 2rem;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.avatar-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.58rem;
+    border-bottom: 2px dashed var(--pixel-border-light);
+    padding-bottom: 0.5rem;
+}
+
+.avatar-status-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent-green);
+    font-weight: bold;
+    border-radius: var(--radius-pill);
+}
+
+.avatar-status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-green);
+    border-radius: 2px;
+    animation: pixel-pulse 1.2s infinite;
+}
+
+.avatar-id-pill {
+    color: var(--accent-gold);
+}
+
+/* Purpose: Rounded photo frame with inset shadow and subtle outer drop shadow */
+.avatar-img-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: 
+        inset 0 0 10px rgba(0, 0, 0, 0.4),
+        var(--shadow-default);
+    overflow: hidden;
+    background-color: #141724;
+}
+
+.about-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: pixelated;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-avatar-card:hover .about-profile-img {
+    transform: scale(1.05);
+}
+
+.avatar-frame-overlay {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+}
+
+.avatar-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.avatar-name {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.95rem;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.avatar-role {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+.avatar-meta-list {
+    margin-top: 0.5rem;
+    padding-top: 0.65rem;
+    border-top: 2px dashed var(--pixel-border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.72rem;
+}
+
+.avatar-meta-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.meta-label {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.meta-val {
+    color: var(--text-primary);
+    font-weight: 700;
+    text-align: right;
+}
+
+.text-green {
+    color: var(--accent-green);
+}
+
+/* --- Right: About Main Content --- */
+.about-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Purpose: Card rounded corners and layered drop shadow for narrative bio dialog box */
+.about-bio-box {
+    background-color: var(--bg-surface);
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-card),
+        inset -2px -2px 0 0 var(--pixel-border-light),
+        inset 2px 2px 0 0 var(--pixel-highlight);
+    padding: 1.75rem;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.about-bio-box:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.bio-lead {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 0 var(--pixel-shadow);
+}
+
+.about-bio-text {
+    font-family: var(--font-pixel-body);
+    font-size: 1.45rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+}
+
+.about-bio-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Subsection titles */
+.subsection-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.subsection-icon {
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+}
+
+/* Career Highlights */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+}
+
+/* Purpose: Consistent rounded corners, tactile elevation on hover, and deep shadow for milestone statistics */
+.highlight-card {
+    background-color: var(--bg-surface);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-default),
+        inset -2px -2px 0 0 var(--pixel-border-light),
+        inset 2px 2px 0 0 var(--pixel-highlight);
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.2s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        var(--shadow-hover),
+        inset -3px -3px 0 0 var(--pixel-border-light),
+        inset 3px 3px 0 0 var(--pixel-highlight);
+    border-color: var(--accent-gold);
+}
+
+.highlight-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+}
+
+.highlight-number {
+    font-family: var(--font-pixel-heading);
+    font-size: 1.35rem;
+    color: var(--accent-cyan);
+    text-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.highlight-unit {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.highlight-desc {
+    font-family: var(--font-pixel-body);
+    font-size: 1.25rem;
+    line-height: 1.35;
+    color: var(--text-secondary);
+}
+
+/* Personal Interests & Side Quests */
+.interests-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Purpose: Pill-rounded shape with tactile hover lift and shadow deepening for interactive interest tags */
+.interest-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-surface);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-default);
+    padding: 0.55rem 0.85rem;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.15s ease, 
+                border-color 0.15s ease;
+    user-select: none;
+}
+
+.interest-chip:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: var(--shadow-btn-hover);
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+.chip-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   SKILLS SECTION STYLING (ABILITY TREE & PROGRESS BARS)
+   ========================================================================== */
+.skills-section {
+    background-color: var(--bg-surface-alt);
+    position: relative;
+}
+
+.section-lead {
+    font-family: var(--font-pixel-body);
+    font-size: 1.45rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    max-width: 780px;
+    margin-top: 0.5rem;
+}
+
+/* Skills Filter Navigation */
+.skills-filter-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    margin-bottom: 2.25rem;
+}
+
+/* Purpose: Rounded filter buttons with layered drop shadows and smooth tactile hover elevation */
+.filter-btn {
+    font-size: 0.65rem;
+    padding: 0.6rem 1rem;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-btn);
+    cursor: pointer;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.15s ease, 
+                color 0.15s ease, 
+                border-color 0.15s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.filter-btn.active {
+    background-color: var(--pixel-border);
+    color: #ffffff;
+    border-color: var(--accent-gold);
+    box-shadow: 
+        inset 2px 2px 0 0 rgba(255, 255, 255, 0.4),
+        inset -2px -2px 0 0 rgba(0, 0, 0, 0.5),
+        2px 2px 0 0 var(--pixel-shadow);
+    transform: translate(2px, 2px);
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Skill Category Card */
+/* Purpose: Consistent card rounded corners and smooth elevation on hover with deep drop shadow for ability tree panels */
+.skill-category-card {
+    background-color: var(--bg-surface);
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-card),
+        inset -3px -3px 0 0 var(--pixel-border-light),
+        inset 3px 3px 0 0 var(--pixel-highlight);
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.2s ease, 
+                opacity 0.25s ease;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        var(--shadow-hover),
+        inset -3px -3px 0 0 var(--pixel-border-light),
+        inset 3px 3px 0 0 var(--pixel-highlight);
+    border-color: var(--accent-gold);
+}
+
+.skill-category-card.hidden {
+    display: none;
+}
+
+/* Category Header */
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    border-bottom: 2px dashed var(--pixel-border-light);
+    padding-bottom: 0.85rem;
+}
+
+/* Purpose: Rounded category icon badge with ambient drop shadow */
+.category-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--bg-surface-alt);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    animation: pixel-bounce 2s infinite alternate;
+}
+
+.category-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.category-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.85rem;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.category-code {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    letter-spacing: 0.5px;
+}
+
+/* Skills List */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Individual Skill Item */
+/* Purpose: Rounded hover container with lateral transition on hover */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.4rem;
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+.skill-item:hover {
+    background-color: var(--bg-surface-alt);
+    border-color: var(--pixel-border-light);
+    box-shadow: var(--shadow-default);
+    transform: translateX(3px);
+}
+
+.skill-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    gap: 0.5rem;
+}
+
+.skill-title {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.68rem;
+    color: var(--text-primary);
+    transition: color 0.15s ease;
+}
+
+.skill-pointer {
+    color: var(--accent-gold);
+    font-size: 0.6rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.skill-symbol {
+    font-size: 0.85rem;
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+.skill-level-badge {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    background-color: var(--bg-surface-alt);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-default);
+    padding: 0.15rem 0.45rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: all 0.18s ease;
+}
+
+/* Stepped Pixel Progress Bar Track */
+/* Purpose: Softened progress track with rounded corners and glowing shadow upon hover */
+.pixel-progress-track {
+    width: 100%;
+    height: 18px;
+    background-color: #0e0f17;
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Segmented Pixel Art Fill */
+.pixel-progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s cubic-bezier(0.1, 0.9, 0.2, 1);
+    background-image: repeating-linear-gradient(
+        90deg,
+        currentColor,
+        currentColor 8px,
+        rgba(0, 0, 0, 0.35) 8px,
+        rgba(0, 0, 0, 0.35) 11px
+    );
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Color Fill Variations */
+.fill-yellow { color: #f59e0b; }
+.fill-cyan   { color: #06b6d4; }
+.fill-green  { color: #10b981; }
+.fill-red    { color: #ef4444; }
+.fill-blue   { color: #3b82f6; }
+.fill-purple { color: #a855f7; }
+
+.skill-meta-desc {
+    font-family: var(--font-pixel-body);
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+}
+
+/* Interactive Hover Enhancements */
+.skill-item:hover .skill-pointer {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.skill-item:hover .skill-title {
+    color: var(--accent-gold);
+}
+
+.skill-item:hover .skill-symbol {
+    animation: pixel-bounce 0.6s infinite alternate;
+}
+
+.skill-item:hover .skill-level-badge {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    transform: scale(1.03);
+}
+
+.skill-item:hover .pixel-progress-track {
+    border-color: var(--accent-gold);
+    box-shadow: 
+        inset 2px 2px 0 rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-category-card {
+        padding: 1.25rem 1rem;
+    }
+}
+
+/* ==========================================================================
+   TIMELINE COMPONENT STYLING (ROUNDED CARDS & SMOOTH TRANSITIONS)
+   ========================================================================== */
+.timeline-section {
+    background-color: var(--bg-base);
+    position: relative;
+}
+
+.timeline-tree {
+    position: relative;
+    max-width: 900px;
+    margin: 2rem auto 0 auto;
+    padding-left: 60px;
+}
+
+/* Timeline Vertical Spine Track */
+.timeline-tree::before {
+    content: "";
+    position: absolute;
+    left: 23px;
+    top: 24px;
+    bottom: 30px;
+    width: 4px;
+    background-color: var(--pixel-border);
+    box-shadow: 1px 0 0 var(--pixel-highlight);
+    pointer-events: none;
+}
+
+/* Individual Milestone Node */
+.timeline-node {
+    position: relative;
+    margin-bottom: 2.75rem;
+}
+
+.timeline-node:last-child {
+    margin-bottom: 0;
+}
+
+/* Checkpoint Marker Badge along the Spine */
+/* Purpose: Circular checkpoint marker with ambient shadow and elastic scale hover effect */
+.timeline-marker {
+    position: absolute;
+    left: -60px;
+    top: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-pill);
+    background-color: var(--bg-surface);
+    border: 3px solid var(--pixel-border);
+    box-shadow: var(--shadow-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.25s ease, 
+                box-shadow 0.25s ease, 
+                background-color 0.25s ease;
+}
+
+.marker-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+/* Rounded Timeline Box Card with Smooth CSS Transitions */
+/* Purpose: Consistent rounded corners with layered drop shadows and smooth diagonal translate on hover */
+.timeline-card.rounded-card {
+    background-color: var(--bg-surface);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.22s ease, 
+                background-color 0.22s ease;
+}
+
+/* Smooth Interactive Hover Effects */
+.timeline-node:hover .timeline-card.rounded-card {
+    transform: translateY(-5px) translateX(4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-gold);
+}
+
+.timeline-node:hover .timeline-marker {
+    transform: scale(1.15);
+    border-color: var(--accent-gold);
+    box-shadow: var(--shadow-hover), 0 0 14px rgba(245, 158, 11, 0.45);
+    background-color: var(--bg-surface-alt);
+}
+
+/* Card Header */
+.timeline-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.timeline-badges-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+/* Category Badges */
+.timeline-category-badge {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--pixel-border);
+    box-shadow: var(--shadow-default);
+    letter-spacing: 0.5px;
+}
+
+.badge-work {
+    background-color: var(--bg-surface-alt);
+    color: var(--accent-cyan);
+}
+
+.badge-project {
+    background-color: var(--bg-surface-alt);
+    color: var(--accent-gold);
+}
+
+.badge-edu {
+    background-color: var(--bg-surface-alt);
+    color: var(--accent-purple);
+}
+
+.timeline-date-badge {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    color: var(--accent-gold);
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    padding: 0.25rem 0.6rem;
+    letter-spacing: 0.5px;
+}
+
+.timeline-role {
+    font-family: var(--font-pixel-heading);
+    font-size: 1.05rem;
+    line-height: 1.35;
+    color: var(--text-primary);
+    text-shadow: 1px 1px 0 var(--pixel-shadow);
+}
+
+.timeline-company {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    letter-spacing: 0.5px;
+}
+
+/* Card Body & Achievements List */
+.timeline-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.timeline-summary {
+    font-family: var(--font-pixel-body);
+    font-size: 1.35rem;
+    line-height: 1.45;
+    color: var(--text-primary);
+}
+
+.timeline-achievements {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding-left: 0;
+}
+
+.timeline-achievements li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-family: var(--font-pixel-body);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.timeline-achievements li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+}
+
+/* Tech Tags at Bottom of Card */
+.timeline-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.4rem;
+    border-top: 2px dashed var(--pixel-border-light);
+    padding-top: 0.85rem;
+}
+
+/* Purpose: Pill-rounded technology chips with tactile hover lift */
+.timeline-tag {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--pixel-border);
+    background-color: var(--bg-surface-alt);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-default);
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.15s ease, 
+                border-color 0.15s ease;
+    user-select: none;
+}
+
+.timeline-tag:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: var(--shadow-btn-hover);
+    color: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+}
+
+/* Responsive Timeline Adjustments */
+@media (max-width: 768px) {
+    .timeline-tree {
+        padding-left: 45px;
+    }
+
+    .timeline-tree::before {
+        left: 17px;
+    }
+
+    .timeline-marker {
+        left: -45px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .marker-icon {
+        font-size: 1rem;
+    }
+
+    .timeline-card.rounded-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .timeline-role {
+        font-size: 0.88rem;
+    }
+
+    .timeline-badges-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================================================
+   PROJECTS SECTION STYLING (CONSISTENT THUMBNAILS & HOVER EFFECTS)
+   ========================================================================== */
+.projects-section {
+    background-color: var(--bg-surface-alt);
+    position: relative;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 2.25rem;
+    margin-top: 1.5rem;
+}
+
+/* Individual Project Card with Consistent Margins & Padding */
+/* Purpose: Consistent card rounded corners and deep drop shadow with smooth elevation on hover for project showcases */
+.project-card {
+    background-color: var(--bg-surface);
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-card),
+        inset -3px -3px 0 0 var(--pixel-border-light),
+        inset 3px 3px 0 0 var(--pixel-highlight);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.22s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        var(--shadow-hover),
+        inset -3px -3px 0 0 var(--pixel-border-light),
+        inset 3px 3px 0 0 var(--pixel-highlight);
+    border-color: var(--accent-gold);
+}
+
+/* Project Thumbnail Wrapper with Aspect Ratio & Scanlines */
+/* Purpose: Rounded thumbnail container with drop shadow and smooth focus ring */
+.project-thumbnail-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    overflow: hidden;
+    background-color: #0d0f17;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-thumbnail-wrapper:focus-visible {
+    outline: 3px dashed var(--accent-gold);
+    outline-offset: 2px;
+}
+
+.project-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: pixelated;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-thumbnail-wrapper:hover .project-thumb-img,
+.project-card:hover .project-thumb-img {
+    transform: scale(1.05);
+}
+
+/* Hover Overlay & Action Badge */
+/* Purpose: Frosted background blur over thumbnail image creates focus on the interaction badge */
+.thumbnail-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 13, 20, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.22s ease;
+    z-index: 2;
+}
+
+.project-thumbnail-wrapper:hover .thumbnail-overlay,
+.project-card:hover .thumbnail-overlay {
+    opacity: 1;
+}
+
+.overlay-badge {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.68rem;
+    color: #ffffff;
+    background-color: var(--pixel-border);
+    border: 2px solid #000;
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-btn);
+    padding: 0.5rem 0.85rem;
+    text-transform: uppercase;
+    transform: translateY(4px);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+}
+
+.project-thumbnail-wrapper:hover .overlay-badge,
+.project-card:hover .overlay-badge {
+    transform: translateY(0);
+}
+
+.thumbnail-scanline {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2) 0px,
+        rgba(0, 0, 0, 0.2) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Card Content Details */
+.project-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.75rem;
+}
+
+.project-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.project-type-tag {
+    color: var(--accent-cyan);
+    letter-spacing: 0.5px;
+}
+
+.project-status-dot {
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    color: var(--accent-green);
+    padding: 0.15rem 0.45rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+}
+
+.project-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: var(--text-primary);
+    text-shadow: 1px 1px 0 var(--pixel-shadow);
+}
+
+.project-description {
+    font-family: var(--font-pixel-body);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    flex-grow: 1;
+}
+
+/* Tech Badges */
+.project-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.25rem 0;
+}
+
+/* Purpose: Pill-rounded technology badge with tactile shadow */
+.tech-pill {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.65rem;
+    font-weight: 700;
+    background-color: var(--bg-surface-alt);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-default);
+    padding: 0.25rem 0.6rem;
+    color: var(--text-primary);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tech-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+}
+
+/* Card Actions */
+.project-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 2px dashed var(--pixel-border-light);
+}
+
+.project-card-actions .pixel-btn {
+    padding: 0.65rem 0.95rem;
+    font-size: 0.65rem;
+}
+
+/* ==========================================================================
+   PROJECT DETAILS MODAL COMPONENT (INTERACTIVE FULL VIEW)
+   ========================================================================== */
+/* Purpose: Heavy background blur diffuses the underlying page content to focus full user attention on the modal */
+.pixel-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.82);
+    backdrop-filter: var(--blur-glass-heavy);
+    -webkit-backdrop-filter: var(--blur-glass-heavy);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.pixel-modal-backdrop.open {
+    display: flex;
+    animation: modal-fade-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Purpose: Modal dialog chassis with consistent rounded corners, glowing ambient drop shadow, and crisp pixel borders */
+.pixel-modal-container {
+    background-color: var(--bg-surface);
+    border: 5px solid var(--pixel-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 
+        var(--shadow-card),
+        0 0 35px var(--window-glow);
+    max-width: 820px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+}
+
+/* Custom Scrollbar for Modal */
+.pixel-modal-container::-webkit-scrollbar {
+    width: 8px;
+}
+.pixel-modal-container::-webkit-scrollbar-track {
+    background: var(--bg-surface-alt);
+    border-left: 2px solid var(--pixel-border);
+}
+.pixel-modal-container::-webkit-scrollbar-thumb {
+    background: var(--pixel-border);
+    border-radius: 2px;
+}
+
+.modal-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--pixel-border);
+    padding-bottom: 0.85rem;
+    gap: 0.5rem;
+}
+
+.modal-badge-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.modal-status-badge {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.62rem;
+    color: var(--accent-gold);
+}
+
+.modal-level-tag {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+/* Purpose: Rounded close button with tactile hover elevation */
+.modal-close-btn {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    background-color: var(--bg-surface-alt);
+    color: var(--accent-red);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-btn);
+    padding: 0.4rem 0.65rem;
+    cursor: pointer;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.15s ease, 
+                color 0.15s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: var(--accent-red);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-btn-hover);
+}
+
+.modal-close-btn:active {
+    transform: translateY(2px);
+}
+
+.modal-body-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.modal-thumbnail-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    overflow: hidden;
+    background-color: #0b0c14;
+}
+
+.modal-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.modal-scanline-fx {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+}
+
+.modal-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.modal-project-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    text-shadow: 2px 2px 0 var(--pixel-shadow);
+}
+
+.modal-project-tagline {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.modal-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+/* Purpose: Consistent rounded corners and drop shadows for inner detail panels */
+.modal-detail-card {
+    background-color: var(--bg-surface-alt);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    padding: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.detail-card-heading {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.68rem;
+    color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.detail-card-text {
+    font-family: var(--font-pixel-body);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+.modal-metrics-box {
+    background-color: var(--bg-surface-alt);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    padding: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.modal-metrics-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.modal-metrics-list li {
+    position: relative;
+    padding-left: 1.3rem;
+    font-family: var(--font-pixel-body);
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.modal-metrics-list li::before {
+    content: "⚡";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.75rem;
+}
+
+.modal-tech-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tech-section-heading {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+}
+
+.modal-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.modal-footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    border-top: 3px solid var(--pixel-border);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-footer-actions {
+        flex-direction: column;
+    }
+
+    .modal-footer-actions .pixel-btn {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   VIDEO HIGHLIGHT / SPOTLIGHT SECTION STYLING (RESPONSIVE RETRO CRT CABINET)
+   ========================================================================== */
+.video-spotlight-section {
+    background-color: var(--bg-surface);
+    position: relative;
+    border-top: 4px solid var(--pixel-border);
+}
+
+.video-spotlight-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.spotlight-content-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 980px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Retro CRT Monitor Cabinet Chassis */
+/* Purpose: Rounded arcade chassis curvature with deep layered drop shadow recreating authentic arcade cabinet hardware */
+.crt-cabinet-frame {
+    background-color: var(--bg-surface-alt);
+    border: 5px solid var(--pixel-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 
+        var(--shadow-card),
+        inset -4px -4px 0 0 var(--pixel-border-light),
+        inset 4px 4px 0 0 var(--pixel-highlight);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    position: relative;
+}
+
+/* CRT Top Bezel with Broadcast Metadata & Recording Indicator */
+.crt-bezel-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0b0c14;
+    border: 2px solid var(--pixel-border);
+    border-top-left-radius: var(--radius-btn);
+    border-top-right-radius: var(--radius-btn);
+    padding: 0.55rem 0.85rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    color: #e2e8f0;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.crt-signal-status {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.crt-rec-indicator {
+    color: var(--accent-red);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 1px;
+}
+
+.rec-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-red);
+    display: inline-block;
+    box-shadow: 0 0 6px var(--accent-red);
+    border-radius: 50%;
+    animation: blink-rec 1s step-end infinite;
+}
+
+@keyframes blink-rec {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.15;
+    }
+}
+
+.crt-channel-tag {
+    color: var(--accent-gold);
+    font-family: var(--font-pixel-ui);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.crt-specs-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.crt-res-badge {
+    background-color: #1e2233;
+    border: 1px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    color: var(--accent-cyan);
+    padding: 0.15rem 0.4rem;
+    font-size: 0.58rem;
+}
+
+.crt-freq-badge {
+    color: var(--text-muted);
+    font-family: var(--font-pixel-ui);
+    font-size: 0.68rem;
+}
+
+/* Responsive CRT Video Screen Container using modern CSS aspect-ratio */
+/* Purpose: Rounded CRT screen bezel containing the video stream */
+.crt-screen-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000000;
+    border: 4px solid #141722;
+    border-radius: var(--radius-btn);
+    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+}
+
+/* Video iframe takes 100% of the 16:9 responsive container */
+.crt-video-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Scanline lines overlay across screen (pointer-events: none ensures controls are clickable) */
+.crt-screen-scanline {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.18) 0px,
+        rgba(0, 0, 0, 0.18) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Diagonal glass glare reflection for authentic CRT glass tube look */
+.crt-corner-glare {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.02) 25%,
+        transparent 50%
+    );
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* CRT Bottom Bezel Bar with Hardware Controls */
+.crt-bezel-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0b0c14;
+    border: 2px solid var(--pixel-border);
+    border-bottom-left-radius: var(--radius-btn);
+    border-bottom-right-radius: var(--radius-btn);
+    padding: 0.65rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.crt-hardware-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+}
+
+.crt-knobs-group {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.crt-knob-label {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.crt-knob-dial {
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 4px var(--accent-cyan);
+}
+
+/* Decorative Speaker Grille */
+.crt-speaker-grille {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.crt-speaker-grille span {
+    width: 3px;
+    height: 14px;
+    background-color: #272d42;
+    border-radius: 1px;
+}
+
+/* Power Indicator LED */
+.crt-power-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.crt-brand-plate {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.62rem;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+}
+
+.crt-power-status {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.crt-power-led {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-green);
+    display: inline-block;
+    box-shadow: 0 0 8px var(--accent-green);
+    border-radius: 50%;
+}
+
+.crt-power-text {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.55rem;
+    color: var(--accent-green);
+}
+
+/* ==========================================================================
+   VIDEO CAPTION & NARRATIVE LOG BOX
+   ========================================================================== */
+/* Purpose: Consistent card rounded corners and layered drop shadow for video narrative log box */
+.video-caption-box {
+    background-color: var(--bg-surface-alt);
+    border: 4px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-card),
+        inset -2px -2px 0 0 var(--pixel-border-light),
+        inset 2px 2px 0 0 var(--pixel-highlight);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    margin: 0;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.video-caption-box:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.caption-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed var(--pixel-border-light);
+    padding-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.caption-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.caption-terminal-prefix {
+    color: var(--accent-cyan);
+    font-size: 0.75rem;
+}
+
+.caption-heading {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.caption-timestamp-badge {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.6rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-default);
+    color: var(--accent-gold);
+    padding: 0.25rem 0.55rem;
+}
+
+.caption-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.caption-lead-text {
+    font-family: var(--font-pixel-body);
+    font-size: 1.25rem;
+    line-height: 1.45;
+    color: var(--text-primary);
+}
+
+.caption-lead-text strong {
+    color: var(--accent-cyan);
+    font-family: var(--font-pixel-ui);
+    font-size: 0.85rem;
+}
+
+.caption-detail-text {
+    font-family: var(--font-pixel-body);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+/* Chapter Timeline Breakdown */
+/* Purpose: Rounded chapter card breakdown with subtle inner drop shadow */
+.caption-chapters-panel {
+    background-color: var(--bg-surface);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.chapters-panel-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.65rem;
+}
+
+.chapter-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    font-size: 1.15rem;
+    font-family: var(--font-pixel-body);
+}
+
+.chapter-time {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+}
+
+.chapter-title {
+    color: var(--text-secondary);
+}
+
+/* Caption Action Buttons */
+.caption-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    border-top: 2px dashed var(--pixel-border-light);
+    padding-top: 1rem;
+}
+
+.caption-actions .pixel-btn {
+    padding: 0.65rem 1.15rem;
+    font-size: 0.68rem;
+}
+
+.caption-note {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+/* Responsive adjustments for Video Spotlight */
+@media (max-width: 768px) {
+    .crt-cabinet-frame {
+        padding: 0.75rem;
+    }
+
+    .crt-bezel-top,
+    .crt-bezel-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.45rem;
+    }
+
+    .crt-speaker-grille {
+        display: none;
+    }
+
+    .chapters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .caption-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .caption-actions .pixel-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .caption-note {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   AI CHAT SECTION STYLING (NEURAL TAVERN TERMINAL)
+   ========================================================================== */
+.chat-section {
+    background-color: var(--bg-surface-alt);
+    position: relative;
+    border-top: 4px solid var(--pixel-border);
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Purpose: Rounded arcade terminal chassis with deep drop shadow for AI chat console */
+.chat-terminal-window {
+    background-color: var(--bg-surface);
+    border: 5px solid var(--pixel-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 
+        var(--shadow-card),
+        inset -4px -4px 0 0 var(--pixel-border-light),
+        inset 4px 4px 0 0 var(--pixel-highlight);
+    max-width: 980px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Chat Header Title Bar */
+/* Purpose: Frosted glass top titlebar matching the terminal curvature */
+.chat-header-bar {
+    background-color: #0d0f18;
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border-top-left-radius: calc(var(--radius-lg) - 4px);
+    border-top-right-radius: calc(var(--radius-lg) - 4px);
+    border-bottom: 3px solid var(--pixel-border);
+    padding: 0.65rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.terminal-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.terminal-dot {
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+.dot-red {
+    background-color: var(--accent-red);
+}
+
+.dot-yellow {
+    background-color: var(--accent-gold);
+}
+
+.dot-green {
+    background-color: var(--accent-green);
+}
+
+.terminal-window-title {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.65rem;
+    color: #e2e8f0;
+    margin-left: 0.4rem;
+    letter-spacing: 0.5px;
+}
+
+.chat-header-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.58rem;
+}
+
+.ai-status-blinker {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--accent-green);
+    animation: blink-rec 1.2s infinite;
+}
+
+.ai-status-text {
+    color: var(--accent-green);
+}
+
+.ai-ping-tag {
+    color: var(--text-muted);
+}
+
+/* Suggestions Prompt Chips Bar */
+.chat-suggestions-bar {
+    background-color: var(--bg-surface-alt);
+    border-bottom: 2px dashed var(--pixel-border-light);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.suggestions-label {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.6rem;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.suggestions-chips-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Purpose: Pill-rounded chips with smooth hover lift and tactile shadow for suggested prompts */
+.chat-suggestion-chip {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.68rem;
+    font-weight: 700;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-default);
+    padding: 0.35rem 0.75rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.15s ease, 
+                color 0.15s ease, 
+                border-color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.chat-suggestion-chip span {
+    color: var(--accent-cyan);
+    font-size: 0.6rem;
+}
+
+.chat-suggestion-chip:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: var(--shadow-btn-hover);
+    background-color: var(--pixel-border);
+    border-color: var(--accent-gold);
+    color: #ffffff;
+}
+
+.chat-suggestion-chip:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0 var(--pixel-shadow);
+}
+
+/* Messages Area Log */
+.chat-messages-area {
+    background-color: #0d0f19;
+    padding: 1.5rem;
+    min-height: 380px;
+    max-height: 520px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for Chat Messages */
+.chat-messages-area::-webkit-scrollbar {
+    width: 8px;
+}
+.chat-messages-area::-webkit-scrollbar-track {
+    background: #090a10;
+    border-left: 2px solid var(--pixel-border);
+}
+.chat-messages-area::-webkit-scrollbar-thumb {
+    background: var(--pixel-border-light);
+    border-radius: 2px;
+}
+
+/* Individual Message Rows */
+.chat-message-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    max-width: 85%;
+    animation: message-appear 0.22s ease-out forwards;
+}
+
+@keyframes message-appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-message-row.msg-ai {
+    align-self: flex-start;
+}
+
+.chat-message-row.msg-user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+/* Avatar Frame */
+.msg-avatar-wrapper {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-default);
+    background-color: #141726;
+    overflow: hidden;
+}
+
+.msg-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    display: block;
+}
+
+.avatar-role-tag {
+    position: absolute;
+    bottom: -6px;
+    right: -4px;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.45rem;
+    padding: 0.1rem 0.25rem;
+    background-color: var(--accent-gold);
+    color: #000;
+    border: 1px solid #000;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+}
+
+.msg-user .avatar-role-tag {
+    background-color: var(--accent-cyan);
+}
+
+.msg-bubble-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.msg-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.msg-ai .msg-meta-row {
+    color: var(--accent-gold);
+}
+
+.msg-user .msg-meta-row {
+    justify-content: flex-end;
+    color: var(--accent-cyan);
+}
+
+.msg-timestamp {
+    color: #64748b;
+    font-size: 0.6rem;
+}
+
+/* Chat Message Bubbles */
+/* Purpose: Rounded chat bubbles with layered drop shadow for readable, comfortable dialog flow */
+.msg-bubble {
+    padding: 1rem 1.15rem;
+    border-radius: var(--radius-card);
+    font-family: var(--font-pixel-body);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    word-break: break-word;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.msg-ai .msg-bubble {
+    background-color: #161a29;
+    color: #f1f5f9;
+    border: 3px solid #2a314b;
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-default),
+        inset -2px -2px 0 0 rgba(0, 0, 0, 0.4),
+        inset 2px 2px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.msg-ai .msg-bubble strong {
+    color: var(--accent-cyan);
+}
+
+.msg-ai .msg-bubble .msg-hint {
+    margin-top: 0.5rem;
+    font-size: 1.15rem;
+    color: #94a3b8;
+    border-top: 1px dashed #2d3748;
+    padding-top: 0.4rem;
+}
+
+.msg-user .msg-bubble {
+    background-color: #142838;
+    color: #ffffff;
+    border: 3px solid var(--accent-cyan);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-default),
+        inset -2px -2px 0 0 rgba(0, 0, 0, 0.4),
+        inset 2px 2px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Typing Indicator Animation */
+.typing-bubble {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background-color: #161a29;
+    border: 3px solid #2a314b;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-default);
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-gold);
+    display: inline-block;
+    animation: typing-bounce 1s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    40% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}
+
+.typing-text {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-left: 0.25rem;
+}
+
+/* Chat Input Form */
+.chat-input-form {
+    background-color: var(--bg-surface);
+    border-top: 3px solid var(--pixel-border);
+    padding: 1rem 1.15rem;
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+}
+
+/* Purpose: Rounded input bar with smooth glow focus transition */
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    background-color: var(--bg-surface-alt);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-btn);
+    box-shadow: inset 2px 2px 0 0 var(--pixel-shadow), 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.35rem 0.75rem;
+    gap: 0.5rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input-container:focus-within {
+    border-color: var(--accent-cyan);
+    box-shadow: inset 2px 2px 0 0 var(--pixel-shadow), 0 0 10px rgba(6, 182, 212, 0.3);
+}
+
+.terminal-prompt-sym {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+}
+
+.chat-input-field {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--font-pixel-body);
+    font-size: 1.35rem;
+    color: var(--text-primary);
+}
+
+.chat-input-field::placeholder {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+}
+
+.chat-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.chat-form-actions .pixel-btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.68rem;
+}
+
+/* Developer Console Status Bar */
+.chat-dev-bar {
+    background-color: #0b0c14;
+    border-top: 2px solid var(--pixel-border);
+    border-bottom-left-radius: calc(var(--radius-lg) - 4px);
+    border-bottom-right-radius: calc(var(--radius-lg) - 4px);
+    padding: 0.45rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.62rem;
+}
+
+.dev-status-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dev-badge {
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+.dev-note {
+    color: #64748b;
+}
+
+.dev-shortcut-hint {
+    color: #94a3b8;
+}
+
+/* Responsive Rules for Chat Section */
+@media (max-width: 768px) {
+    .chat-header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    .chat-messages-area {
+        padding: 1rem;
+        min-height: 320px;
+    }
+
+    .chat-message-row {
+        max-width: 95%;
+    }
+
+    .chat-input-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .chat-form-actions {
+        width: 100%;
+    }
+
+    .chat-form-actions .pixel-btn {
+        flex: 1;
+        text-align: center;
+    }
+
+    .chat-dev-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================================================
+   7. TESTIMONIALS SECTION (GUILD REVIEWS & PARTY ENDORSEMENTS)
+   ========================================================================== */
+.testimonials-section {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.testimonial-card {
+    background-color: var(--bg-card);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    position: relative;
+    transition: transform var(--transition-spring), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary);
+}
+
+.testimonial-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-bottom: 2px dashed var(--pixel-border);
+    padding-bottom: 1rem;
+}
+
+.testimonial-author-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: 2px 2px 0 var(--pixel-border);
+    flex-shrink: 0;
+}
+
+.author-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.author-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.72rem;
+    color: var(--text-heading);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.author-role {
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.guild-badge {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.52rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--pixel-border);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    align-self: flex-start;
+}
+
+.badge-lead {
+    background-color: rgba(255, 184, 0, 0.15);
+    color: #ffb800;
+    border-color: #ffb800;
+}
+
+.badge-master {
+    background-color: rgba(0, 229, 255, 0.15);
+    color: #00e5ff;
+    border-color: #00e5ff;
+}
+
+.badge-commander {
+    background-color: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    border-color: #a855f7;
+}
+
+.testimonial-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+}
+
+.rating-stars {
+    color: #ffcc00;
+    text-shadow: 0 0 6px rgba(255, 204, 0, 0.6);
+    letter-spacing: 2px;
+}
+
+.rating-text {
+    color: var(--text-muted);
+    font-size: 0.58rem;
+}
+
+.testimonial-quote {
+    font-family: 'VT323', monospace;
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: var(--text-body);
+    margin: 0;
+    font-style: normal;
+    position: relative;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--primary);
+}
+
+.testimonial-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--pixel-border);
+    padding-top: 0.85rem;
+}
+
+.quest-tag {
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   8. CONTACT SECTION (TRANSMISSION CONSOLE & ARCADE DISPATCH)
+   ========================================================================== */
+.contact-section {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 2.25rem;
+    margin-top: 2.5rem;
+    align-items: stretch;
+}
+
+/* Left Column: Direct Comms HUD Card */
+.contact-info-card {
+    background-color: var(--bg-card);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.75rem;
+    transition: transform var(--transition-spring), box-shadow var(--transition-normal);
+}
+
+.contact-info-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    border-bottom: 2px dashed var(--pixel-border);
+    padding-bottom: 1rem;
+}
+
+.contact-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: rgba(34, 197, 94, 0.15);
+    border: 2px solid #22c55e;
+    border-radius: var(--radius-pill);
+    padding: 0.35rem 0.75rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: #22c55e;
+}
+
+.status-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+    animation: beacon-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes beacon-pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1.35);
+    }
+}
+
+.channel-freq {
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+.contact-box-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+    color: var(--text-heading);
+    margin: 0 0 0.65rem 0;
+    line-height: 1.5;
+}
+
+.contact-box-desc {
+    font-family: 'VT323', monospace;
+    font-size: 1.25rem;
+    color: var(--text-body);
+    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+}
+
+.comms-channel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.comms-channel-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.comms-channel-item:hover {
+    border-color: var(--primary);
+    transform: translateX(4px);
+}
+
+.channel-icon-wrap {
+    font-size: 1.4rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-card);
+    border: 1px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.channel-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.channel-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.52rem;
+    color: var(--text-muted);
+}
+
+.channel-value {
+    font-family: 'VT323', monospace;
+    font-size: 1.25rem;
+    color: var(--text-heading);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.channel-value.email-link {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+}
+
+.channel-value.email-link:hover {
+    color: var(--accent);
+}
+
+.channel-copy-btn {
+    font-size: 0.55rem;
+    padding: 0.35rem 0.65rem;
+    flex-shrink: 0;
+}
+
+.channel-tag {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.48rem;
+    padding: 0.3rem 0.5rem;
+    background-color: rgba(0, 229, 255, 0.1);
+    color: #00e5ff;
+    border: 1px solid #00e5ff;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+}
+
+.channel-tag.tag-sla {
+    background-color: rgba(255, 184, 0, 0.1);
+    color: #ffb800;
+    border-color: #ffb800;
+}
+
+/* Resume Download Box */
+.resume-download-box {
+    background: linear-gradient(135deg, var(--bg-surface), rgba(124, 58, 237, 0.1));
+    border: 3px solid var(--secondary);
+    border-radius: var(--radius-card);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 4px 4px 0 0 var(--secondary);
+}
+
+.resume-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.resume-icon {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resume-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.72rem;
+    color: var(--text-heading);
+    margin: 0 0 0.3rem 0;
+}
+
+.resume-meta {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.resume-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.resume-btn {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    font-size: 0.6rem;
+    padding: 0.65rem 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+/* Right Column: Arcade Transmission Form */
+.contact-form-box {
+    background-color: var(--bg-card);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: transform var(--transition-spring), box-shadow var(--transition-normal);
+}
+
+.contact-form-box:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.form-terminal-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-bottom: 2px solid var(--pixel-border);
+    padding-bottom: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.form-terminal-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.62rem;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+}
+
+.form-terminal-codec {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Contact Status Alert Banner */
+.contact-status-banner {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-family: 'VT323', monospace;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    animation: fadeInStatus 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInStatus {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-status-banner.status-success {
+    background-color: rgba(34, 197, 94, 0.15);
+    border: 2px solid #22c55e;
+    color: #4ade80;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.25);
+}
+
+.contact-status-banner.status-error {
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 2px solid #ef4444;
+    color: #f87171;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+}
+
+.contact-status-banner.status-transmitting {
+    background-color: rgba(0, 229, 255, 0.15);
+    border: 2px solid #00e5ff;
+    color: #38bdf8;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.25);
+}
+
+/* Pixel Contact Form Styles */
+.pixel-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.58rem;
+    color: var(--text-heading);
+    letter-spacing: 0.5px;
+}
+
+.label-code {
+    color: var(--accent);
+}
+
+.required-asterisk {
+    color: #ef4444;
+}
+
+.label-with-counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.char-counter {
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+.char-counter.near-limit {
+    color: #ffb800;
+}
+
+.char-counter.at-limit {
+    color: #ef4444;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-prefix-icon {
+    position: absolute;
+    left: 1rem;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.pixel-input,
+.pixel-select,
+.pixel-textarea {
+    width: 100%;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: inset 2px 2px 0 0 rgba(0, 0, 0, 0.25);
+    color: var(--text-heading);
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.pixel-select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%2300e5ff%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.25rem;
+    padding-right: 2.75rem;
+}
+
+.pixel-select option {
+    background-color: var(--bg-surface);
+    color: var(--text-heading);
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+}
+
+.pixel-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+.pixel-input:focus,
+.pixel-select:focus,
+.pixel-textarea:focus {
+    border-color: var(--primary);
+    box-shadow: inset 2px 2px 0 0 rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(0, 229, 255, 0.25);
+    background-color: var(--bg-card);
+}
+
+.pixel-input.field-invalid,
+.pixel-select.field-invalid,
+.pixel-textarea.field-invalid {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+}
+
+.field-error-msg {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #f87171;
+    min-height: 1.2rem;
+    display: block;
+    margin-top: 0.15rem;
+}
+
+.contact-form-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.form-submit-btn {
+    flex: 2;
+    min-width: 180px;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.68rem;
+}
+
+.form-reset-btn {
+    flex: 1;
+    min-width: 130px;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.68rem;
+}
+
+/* Responsive Rules for Contact and Testimonials */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-info-card,
+    .contact-form-box {
+        padding: 1.25rem;
+    }
+
+    .contact-form-actions {
+        flex-direction: column;
+    }
+
+    .form-submit-btn,
+    .form-reset-btn {
+        width: 100%;
+    }
+
+    .comms-channel-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem;
+    }
+
+    .channel-copy-btn {
+        align-self: flex-start;
+    }
+}
+
+/* ==========================================================================
+   FOOTER STYLING (PIXEL SOCIAL HUBS, CREDITS & QUEST LOG OFF)
+   ========================================================================== */
+.site-footer {
+    background-color: var(--bg-surface);
+    border-top: 5px solid var(--pixel-border);
+    box-shadow: inset 0 6px 0 0 var(--pixel-highlight);
+    padding: 3rem 0 2rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.85rem;
+    max-width: 1100px;
+}
+
+/* Footer Top Ribbon */
+/* Purpose: Consistent card rounded corners and ambient drop shadow for footer ribbon */
+.footer-ribbon-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: var(--bg-surface-alt);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-default);
+    padding: 0.65rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.footer-level-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-pixel-heading);
+    font-size: 0.62rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.5px;
+}
+
+.ribbon-star {
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+}
+
+.footer-hud-signal {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+.footer-signal-dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--accent-green);
+    animation: blink-rec 1.4s infinite;
+}
+
+/* Social Media Section */
+.footer-social-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.footer-social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.35rem;
+}
+
+/* Individual Pixel Social Media Icon Button */
+/* Purpose: Tactile arcade button with rounded corners, responsive spring transition, and glowing drop shadow on hover */
+.social-icon-btn {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-surface-alt);
+    border: 3px solid var(--pixel-border);
+    border-radius: var(--radius-card);
+    box-shadow: 
+        var(--shadow-btn),
+        inset 2px 2px 0 0 var(--pixel-highlight),
+        inset -2px -2px 0 0 var(--pixel-border-light);
+    color: var(--text-primary);
+    cursor: pointer;
+    text-decoration: none;
+    transition: 
+        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.15s ease,
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.social-icon-btn .footer-pixel-svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover and Focus States */
+.social-icon-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 
+        var(--shadow-btn-hover),
+        inset 2px 2px 0 0 var(--pixel-highlight),
+        inset -2px -2px 0 0 var(--pixel-border-light);
+}
+
+.social-icon-btn:hover .footer-pixel-svg {
+    transform: scale(1.15);
+}
+
+.social-icon-btn:active {
+    transform: translateY(2px) scale(0.96);
+    box-shadow: 
+        2px 2px 0 0 var(--pixel-shadow),
+        inset 1px 1px 0 0 var(--pixel-highlight),
+        inset -1px -1px 0 0 var(--pixel-border-light);
+}
+
+.social-icon-btn:focus-visible {
+    outline: 3px dashed var(--accent-gold);
+    outline-offset: 3px;
+}
+
+/* Platform-Specific Brand Hover Themes */
+.social-icon-btn[data-platform="github"]:hover {
+    border-color: #a855f7;
+    color: #a855f7;
+    background-color: #171524;
+}
+
+.social-icon-btn[data-platform="linkedin"]:hover {
+    border-color: #0ea5e9;
+    color: #0ea5e9;
+    background-color: #0c1c2e;
+}
+
+.social-icon-btn[data-platform="twitter"]:hover {
+    border-color: #38bdf8;
+    color: #38bdf8;
+    background-color: #0b1a29;
+}
+
+.social-icon-btn[data-platform="leetcode"]:hover {
+    border-color: #f59e0b;
+    color: #f59e0b;
+    background-color: #291c0b;
+}
+
+.social-icon-btn[data-platform="devto"]:hover {
+    border-color: #10b981;
+    color: #10b981;
+    background-color: #0c261e;
+}
+
+.social-icon-btn[data-platform="email"]:hover {
+    border-color: #ff3366;
+    color: #ff3366;
+    background-color: #290d18;
+}
+
+/* Hover Tooltip Popup */
+/* Purpose: Frosted tooltip with rounded corners and drop shadow appearing smoothly above hovered icon */
+.social-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background-color: rgba(11, 12, 20, 0.95);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    color: #ffffff;
+    border: 2px solid var(--pixel-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-default);
+    font-family: var(--font-pixel-heading);
+    font-size: 0.52rem;
+    padding: 0.35rem 0.6rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                visibility 0.18s ease;
+    z-index: 100;
+}
+
+.social-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--pixel-border) transparent transparent transparent;
+}
+
+.social-icon-btn:hover .social-tooltip,
+.social-icon-btn:focus-visible .social-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Footer Quick Teleport Navigation */
+.footer-quick-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    background-color: var(--bg-surface-alt);
+    border: 2px dashed var(--pixel-border-light);
+    border-radius: var(--radius-card);
+    padding: 0.65rem 1rem;
+    width: 100%;
+}
+
+.footer-nav-label {
+    font-family: var(--font-pixel-heading);
+    font-size: 0.58rem;
+    color: var(--accent-gold);
+}
+
+.footer-nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    font-family: var(--font-pixel-ui);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.footer-nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.1s ease;
+}
+
+.footer-nav-links a:hover {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+}
+
+.nav-separator {
+    color: var(--text-muted);
+    font-size: 0.6rem;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 3px solid var(--pixel-border);
+    padding-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.footer-copy-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+}
+
+.footer-copyright {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.footer-copyright strong {
+    color: var(--accent-cyan);
+}
+
+.footer-engine-tag {
+    font-family: var(--font-pixel-body);
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+}
+
+.back-to-top {
+    font-size: 0.65rem;
+    padding: 0.65rem 1.15rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Mobile Responsive Adjustments for Footer */
+@media (max-width: 768px) {
+    .footer-ribbon-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .footer-social-links {
+        gap: 0.85rem;
+    }
+
+    .social-icon-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .social-icon-btn .footer-pixel-svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-copy-group {
+        text-align: center;
+    }
+
+    .back-to-top {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes blink-cursor {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pixel-pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes pixel-bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-3px);
+    }
+}
+
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE DESIGN (MEDIA QUERIES)
+   Fine-tuned for Desktop, Tablet, and Mobile across all components
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LAPTOP & SMALL DESKTOP (max-width: 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+    :root {
+        --sidebar-width: 260px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0 1.75rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 290px 1fr;
+        gap: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 1.75rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 1.75rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLET PORTRAIT (max-width: 992px)
+   - Collapses vertical sidebar into an off-canvas drawer
+   - Activates mobile top navigation bar
+   - Adapts grid layouts from 2-column to balanced stacked layouts
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    :root {
+        --sidebar-width: 0px;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    #main-content,
+    .site-footer {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Show Mobile Top Bar */
+    .mobile-top-bar {
+        display: flex;
+    }
+
+    /* Convert Sidebar into Off-Canvas Slide Drawer */
+    .pixel-sidebar {
+        transform: translateX(-105%);
+        z-index: 1200;
+        box-shadow: 8px 0 0 var(--pixel-shadow);
+        width: 300px;
+        max-width: 86vw;
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .pixel-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .mobile-close-btn {
+        display: inline-flex;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    /* Section Spacing & Margins */
+    .section {
+        padding: 3.85rem 0;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+        width: 95%;
+    }
+
+    /* Hero Section Tablet Layout */
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .hero-media-wrapper {
+        order: -1;
+        max-width: 340px;
+        width: 100%;
+    }
+
+    .hero-hud {
+        max-width: 520px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-badges {
+        justify-content: center;
+    }
+
+    /* About Section Tablet Layout */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-avatar-card {
+        position: static;
+        max-width: 480px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Skills Section Tablet Layout */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* Projects Section Tablet Layout */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+    }
+
+    /* Spotlight Video Tablet Layout */
+    .spotlight-content-layout {
+        max-width: 100%;
+    }
+
+    /* AI Chat Window Tablet Layout */
+    .chat-terminal-window {
+        max-width: 100%;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE DEVICES & PHONES (max-width: 768px)
+   - Stacks all multi-column grids into clean single columns
+   - Adjusts retro font sizing to prevent awkward clipping
+   - Makes buttons full width for effortless touch interaction
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Section Padding & Container */
+    .section {
+        padding: 3rem 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+        width: 96%;
+    }
+
+    /* Typography Adjustments */
+    .quest-banner {
+        display: inline-flex;
+        flex-wrap: wrap;
+        font-size: 0.52rem;
+        white-space: normal;
+        max-width: 100%;
+        line-height: 1.4;
+    }
+
+    .hero-title {
+        font-size: clamp(1.15rem, 5vw, 1.4rem);
+        line-height: 1.35;
+        word-break: break-word;
+    }
+
+    .hero-title-name {
+        display: block;
+        margin-top: 0.3rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+        line-height: 1.35;
+        margin-bottom: 1.25rem;
+    }
+
+    .section-lead {
+        font-size: 1.2rem;
+        line-height: 1.45;
+    }
+
+    .section-header {
+        margin-bottom: 1.75rem;
+    }
+
+    /* Hero Buttons */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+
+    .hero-actions .pixel-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-media-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .pixel-card-frame {
+        max-width: min(290px, 90vw);
+        margin: 0 auto;
+    }
+
+    .hero-hud {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .hud-row {
+        font-size: 0.58rem;
+    }
+
+    .hud-bar-container {
+        max-width: 120px;
+    }
+
+    /* About Section */
+    .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .interests-tags {
+        gap: 0.5rem;
+    }
+
+    /* Skills Ability Tree */
+    .skills-filter-nav {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.65rem;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+
+    .filter-btn {
+        flex-shrink: 0;
+        padding: 0.55rem 0.85rem;
+        font-size: 0.62rem;
+    }
+
+    .skill-category-card {
+        padding: 1.25rem 1rem;
+    }
+
+    /* Timeline */
+    .timeline-tree {
+        padding-left: 45px;
+    }
+
+    .timeline-tree::before {
+        left: 17px;
+    }
+
+    .timeline-marker {
+        left: -45px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .marker-icon {
+        font-size: 0.95rem;
+    }
+
+    .timeline-card.rounded-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .timeline-role {
+        font-size: 0.88rem;
+    }
+
+    .timeline-badges-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .project-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .project-card-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-card-actions .pixel-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Project Detail Modal */
+    .pixel-modal-container {
+        padding: 1.25rem 1rem;
+        max-height: 94vh;
+        gap: 1rem;
+    }
+
+    .modal-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .modal-footer-actions {
+        flex-direction: column;
+        gap: 0.65rem;
+    }
+
+    .modal-footer-actions .pixel-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Video Spotlight CRT Chassis */
+    .crt-cabinet-frame {
+        padding: 0.75rem;
+    }
+
+    .crt-bezel-top,
+    .crt-bezel-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .crt-speaker-grille {
+        display: none;
+    }
+
+    .chapters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .caption-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .caption-actions .pixel-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .caption-note {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    /* AI Chat Window */
+    .chat-header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.45rem;
+    }
+
+    .chat-messages-area {
+        padding: 1rem;
+        min-height: 320px;
+    }
+
+    .chat-message-row {
+        max-width: 95%;
+    }
+
+    .chat-input-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
+    }
+
+    .chat-form-actions {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .chat-form-actions .pixel-btn {
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .chat-dev-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    /* Footer */
+    .footer-ribbon-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .footer-social-links {
+        gap: 0.85rem;
+    }
+
+    .social-icon-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .social-icon-btn .footer-pixel-svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-copy-group {
+        text-align: center;
+    }
+
+    .back-to-top {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. SMALL / COMPACT MOBILE (max-width: 480px)
+   - Tailored for smaller viewports (iPhone SE, Galaxy A series, 320px - 440px)
+   - Downscales large 8-bit headings and avoids horizontal overflow
+   - Fine-tunes stepped borders and shadows
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    /* Container & Base Spacing */
+    .container {
+        padding: 0 0.75rem;
+        width: 96%;
+    }
+
+    .section {
+        padding: 2.35rem 0;
+    }
+
+    /* Typography for Press Start 2P Headings */
+    .quest-banner {
+        font-size: 0.5rem;
+        padding: 0.35rem 0.6rem;
+        white-space: normal;
+        max-width: 100%;
+        line-height: 1.4;
+    }
+
+    .hero-title {
+        font-size: clamp(0.95rem, 4.8vw, 1.15rem);
+        line-height: 1.35;
+        word-break: break-word;
+    }
+
+    .hero-tagline {
+        font-size: 1.15rem;
+    }
+
+    .mobile-brand .brand-name {
+        font-size: 0.65rem;
+    }
+
+    .section-title {
+        font-size: 1.05rem;
+        word-break: break-word;
+    }
+
+    .section-tag {
+        font-size: 0.7rem;
+    }
+
+    .category-title {
+        font-size: 0.82rem;
+    }
+
+    .project-title {
+        font-size: 0.85rem;
+    }
+
+    .modal-project-title {
+        font-size: 0.95rem;
+    }
+
+    /* General Pixel Box Shadow Reduction to prevent screen-edge clipping */
+    .pixel-box {
+        border-width: 3px;
+        border-radius: var(--radius-card);
+        box-shadow: 
+            3px 3px 0 0 var(--pixel-shadow),
+            inset -2px -2px 0 0 var(--pixel-border-light),
+            inset 2px 2px 0 0 var(--pixel-highlight);
+    }
+
+    .pixel-btn {
+        padding: 0.7rem 0.95rem;
+        font-size: 0.65rem;
+    }
+
+    .pixel-card-frame {
+        padding: 0.85rem;
+        max-width: 100%;
+    }
+
+    /* Timeline Compact Rendering */
+    .timeline-tree {
+        padding-left: 36px;
+    }
+
+    .timeline-tree::before {
+        left: 12px;
+    }
+
+    .timeline-marker {
+        left: -36px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .marker-icon {
+        font-size: 0.85rem;
+    }
+
+    .timeline-card.rounded-card {
+        padding: 1rem 0.85rem;
+    }
+
+    .timeline-tag {
+        font-size: 0.62rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    /* Skills Info Row */
+    .skill-info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .skill-level-badge {
+        font-size: 0.58rem;
+    }
+
+    /* CRT Video Chassis */
+    .crt-cabinet-frame {
+        padding: 0.5rem;
+    }
+
+    .crt-bezel-top {
+        padding: 0.45rem 0.65rem;
+        font-size: 0.58rem;
+    }
+
+    .crt-bezel-bottom {
+        padding: 0.45rem 0.65rem;
+    }
+
+    .crt-hardware-controls {
+        flex-wrap: wrap;
+        gap: 0.65rem;
+    }
+
+    /* Chat Elements */
+    .msg-avatar-wrapper {
+        width: 36px;
+        height: 36px;
+    }
+
+    .msg-bubble {
+        padding: 0.75rem 0.85rem;
+        font-size: 1.15rem;
+    }
+
+    .chat-suggestion-chip {
+        padding: 0.25rem 0.45rem;
+        font-size: 0.62rem;
+    }
+
+    .chat-input-field {
+        font-size: 1.15rem;
+    }
+
+    /* Footer Social Icons & Buttons */
+    .social-icon-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .social-icon-btn .footer-pixel-svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .social-tooltip {
+        display: none;
+    }
+
+    .footer-level-status {
+        font-size: 0.55rem;
+    }
+
+    .footer-hud-signal {
+        font-size: 0.58rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. ULTRA-COMPACT SMARTPHONES (max-width: 360px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 0.95rem;
+    }
+
+    .mobile-brand .brand-name {
+        display: none;
+    }
+
+    .sidebar-brand-text .brand-title {
+        font-size: 0.65rem;
+    }
+
+    .filter-btn {
+        padding: 0.45rem 0.65rem;
+        font-size: 0.58rem;
+    }
+}
